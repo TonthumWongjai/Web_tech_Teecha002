@@ -1,0 +1,64 @@
+*{/* set default ของทุกอย่างใน web */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;/* ใช้บล็อกไม่ให้เกินขนาดที่กำหนด */
+    font-family: 'Itim', sans-serif; /* set default ให้ใช้ Font itim ทั้ง web */
+}
+body {
+    height: 1500px; /* ใส่ความสูงหลอกๆ ไว้เทสตอนเลื่อนจอ */
+}
+.navbar { /* กำหนด navbar โดยรอบ */
+    display: flex;
+    justify-content: space-between;/* กระจายโลโก้ left bottom right */
+    align-items: center;
+    padding: 15px 100px;
+    background-color: whitesmoke;
+    box-shadow: 0 2px 10px rgba(0, 0,0,0.5);/* ใส่เงาบางๆ ด้านล่างให้ขอบดูชัดขึ้น */
+    position: sticky;/* lockให่มันเลื่อนตามหน้าจอ */
+    top: 0;
+    z-index: 1000;
+}
+.nav-link{/* กำหนดระยะห่างของ content บน navbar */
+    display: flex;
+    gap: 25px;/* ระยะห่างระหว่างnav content */
+}
+.nav-link a{
+    text-decoration: none;/* เอาเส้นใต้ลิงก์ออก */
+    color: #333333; /* สีตัวหนังสือเทาเข้มตรง content*/
+    font-weight: bold;
+    transition: all 0.5s ease;/* ให้สีตัวหนังสือเเละเส้นใต้ค่อยๆ เปลี่ยน */
+    position: relative;
+    padding-bottom: 5px; /* ดันเนื้อหาลงมานิดนึงไม่ให้อึดอัด */
+}
+.nav-link a::after {
+    content: ""; /* บังคับต้องมีเวลาใช้ ::after */
+    position: absolute;
+    left: 0;
+    bottom: -15px; /* จัดตำแหน่งให้อยู่ใต้ตัวหนังสือพอดี */
+    width: 100%; /* ความยาวเส้นเท่ากับความยาวคำ */
+    height: 3px; /* ความหนาของเส้น */
+    background-color: #ff6900; 
+
+    /*ตอนปกติสั่งให้ความยาวเส้นแกนX = 0 (มองไม่เห็น) */
+    transform: scaleX(0); 
+    
+    /* กำหนดจุดเริ่มขยายอยู่ฝั่งซ้ายสุด */
+    transform-origin: left; 
+    
+    /*ให้ขยายเส้นสมูท เวลา 0.3 */
+    transition: transform 0.3s ease; 
+}
+.nav-link a:hover {
+    color: #ff6900; /* เปลี่ยนเป็นสีส้มตอนเอาเมาส์ชี้ */
+}
+.nav-link a:hover::after {/*เมาส์ชี้ให้เอาเส้นปลอมที่ซ่อนอยู่ขยายออกมาเป็นขนาดจริง*/
+    transform: scaleX(1); 
+}
+.logo a{/* รูปโลโก้ but yaung mai mee */
+    display: flex;
+    font-size: 25px;
+    text-decoration: none;/* เอาเส้นใต้ลิงก์ออก */
+}
+.logo a:hover{
+    color: #333;
+}
