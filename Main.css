@@ -1,64 +1,258 @@
-*{/* set default ของทุกอย่างใน web */
+* { /* set default ของทุกอย่างใน web */
     margin: 0;
     padding: 0;
-    box-sizing: border-box;/* ใช้บล็อกไม่ให้เกินขนาดที่กำหนด */
+    box-sizing: border-box; /* ใช้บล็อกไม่ให้ขนาดเกินที่กำหนด */
     font-family: 'Itim', sans-serif; /* set default ให้ใช้ Font itim ทั้ง web */
 }
+
 body {
     height: 1500px; /* ใส่ความสูงหลอกๆ ไว้เทสตอนเลื่อนจอ */
+    background-color: #ffffff; /* เปลี่ยนเป็นสีขาวล้วนให้เหมือน Xiaomi */
 }
-.navbar { /* กำหนด navbar โดยรอบ */
+
+/* ==================================
+   1. จัดการแถบ Navbar โดยรวม
+================================== */
+.navbar { 
     display: flex;
-    justify-content: space-between;/* กระจายโลโก้ left bottom right */
-    align-items: center;
-    padding: 15px 100px;
-    background-color: whitesmoke;
-    box-shadow: 0 2px 10px rgba(0, 0,0,0.5);/* ใส่เงาบางๆ ด้านล่างให้ขอบดูชัดขึ้น */
-    position: sticky;/* lockให่มันเลื่อนตามหน้าจอ */
+    justify-content: space-between; /* กระจาย 3 กล่อง ซ้าย-กลาง-ขวา */
+    align-items: center; /* ให้ทุกอย่างอยู่กึ่งกลางแนวตั้ง */
+    padding: 15px 100px; /* 🚨 อัปเดต: ให้ขอบตรงกับแบนเนอร์ด้านล่าง */
+    background-color: #ffffff; /* สีพื้นหลัง Navbar */
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08); /* ใส่เงาบางๆ ด้านล่างให้ดูเนียนตา */
+    position: sticky; /* lock ให้มันเลื่อนตามหน้าจอ */
     top: 0;
     z-index: 1000;
 }
-.nav-link{/* กำหนดระยะห่างของ content บน navbar */
+
+/* ==================================
+   2. จัดการโลโก้ (ซ้ายสุด)
+================================== */
+.logo a {
     display: flex;
-    gap: 25px;/* ระยะห่างระหว่างnav content */
+    text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
 }
-.nav-link a{
-    text-decoration: none;/* เอาเส้นใต้ลิงก์ออก */
-    color: #333333; /* สีตัวหนังสือเทาเข้มตรง content*/
-    font-weight: bold;
-    transition: all 0.5s ease;/* ให้สีตัวหนังสือเเละเส้นใต้ค่อยๆ เปลี่ยน */
-    position: relative;
+.logo img {
+    border-radius: 12px; /* ลบมุมกล่องโลโก้ให้โค้งมน */
+}
+
+/* ==================================
+   3. จัดการเมนู (ตรงกลาง)
+================================== */
+.nav-link {
+    display: flex;
+    gap: 30px; /* ระยะห่างระหว่างหัวข้อเมนู */
+}
+
+.nav-link a {
+    text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
+    color: #333333; /* สีตัวหนังสือเทาเข้ม */
+    font-size: 16px; /* ขนาดตัวอักษรกำลังดี */
+    font-weight: normal; /* ใช้ตัวบางๆ แบบมินิมอล */
+    white-space: nowrap; /* บังคับไม่ให้ตัวหนังสือตกบรรทัด */
+    position: relative; /* เพื่อเป็นกรอบให้เส้นสไลด์ */
     padding-bottom: 5px; /* ดันเนื้อหาลงมานิดนึงไม่ให้อึดอัด */
+    transition: color 0.3s ease; /* ให้สีค่อยๆ เปลี่ยน */
 }
+
+/* สร้างเส้นปลอมซ่อนไว้ใต้ลิงก์ */
 .nav-link a::after {
     content: ""; /* บังคับต้องมีเวลาใช้ ::after */
     position: absolute;
     left: 0;
-    bottom: -15px; /* จัดตำแหน่งให้อยู่ใต้ตัวหนังสือพอดี */
+    bottom: -16px; /* ดันเส้นให้อยู่ชิดขอบล่างของ Navbar พอดี */
     width: 100%; /* ความยาวเส้นเท่ากับความยาวคำ */
     height: 3px; /* ความหนาของเส้น */
     background-color: #ff6900; 
 
-    /*ตอนปกติสั่งให้ความยาวเส้นแกนX = 0 (มองไม่เห็น) */
+    /* ตอนปกติสั่งให้ความยาวเส้นแกนX = 0 (มองไม่เห็น) */
     transform: scaleX(0); 
-    
     /* กำหนดจุดเริ่มขยายอยู่ฝั่งซ้ายสุด */
     transform-origin: left; 
-    
-    /*ให้ขยายเส้นสมูท เวลา 0.3 */
+    /* ให้ขยายเส้นสมูท เวลา 0.3s */
     transition: transform 0.3s ease; 
 }
+
+/* ตอนเอาเมาส์ชี้เปลี่ยนเป็นสีส้ม Xiaomi */
 .nav-link a:hover {
-    color: #ff6900; /* เปลี่ยนเป็นสีส้มตอนเอาเมาส์ชี้ */
+    color: #ff6900; 
 }
-.nav-link a:hover::after {/*เมาส์ชี้ให้เอาเส้นปลอมที่ซ่อนอยู่ขยายออกมาเป็นขนาดจริง*/
+
+/* เมาส์ชี้ให้ดึงเส้นปลอมที่ซ่อนอยู่ขยายออกมาเป็นขนาดจริง */
+.nav-link a:hover::after {
     transform: scaleX(1); 
 }
-.logo a{/* รูปโลโก้ but yaung mai mee */
+
+/* ==================================
+   4. จัดการไอคอน (ขวาสุด)
+================================== */
+.nav-icons {
     display: flex;
-    font-size: 25px;
-    text-decoration: none;/* เอาเส้นใต้ลิงก์ออก */
+    gap: 20px; /* ระยะห่างระหว่างไอคอนแต่ละตัว */
+    align-items: center; /* จัดให้ไอคอนอยู่กึ่งกลางแนวตั้ง */
 }
-.logo a:hover{
-    color: #333;
+
+.nav-icons a {
+    font-size: 20px; /* ขนาดของไอคอน */
+    color: #333333; 
+    text-decoration: none; 
+    transition: transform 0.2s ease; /* เตรียมตั้งค่าให้ขยายตัว */
+}
+
+/* ตอนเอาเมาส์ชี้ให้ไอคอนขยายใหญ่ขึ้นนิดนึงแบบเด้งๆ */
+.nav-icons a:hover {
+    transform: scale(1.2); 
+}
+
+/* ==================================
+   5. โซนแบนเนอร์ (Hero Section)
+================================== */
+.hero-section {
+    width: 100%;
+    height: 600px; /* ความสูงของแบนเนอร์ (ปรับลดเพิ่มได้ตามใจชอบ) */
+    
+    /* รูปภาพพื้นหลังของ Xiaomi Pad 8 ของจริง */
+    background-image: url('https://i02.appmifile.com/202_operator_th/31/03/2026/df82765d0b6095651f0e2db334cbc4ef.jpg'); 
+    background-size: cover; /* สั่งให้รูปขยายเต็มกล่องพอดีเป๊ะ */
+    background-position: center; /* จัดให้รูปอยู่กึ่งกลางเสมอ */
+    
+    display: flex;
+    align-items: center; /* ดันกลุ่มข้อความให้อยู่กึ่งกลางแนวตั้ง */
+    
+    /* 🚨 อัปเดต: สองบรรทัดนี้แก้บั๊กปุ่มทับ! */
+    position: relative; /* ให้ปุ่มลูกศรมาเกาะที่กล่องนี้ */
+    padding: 0 100px; /* ขยับข้อความหนีปุ่ม (เพิ่มเป็น 100px) */
+}
+
+.hero-content {
+    color: #ffffff; /* ตัวหนังสือสีขาว เพราะพื้นหลังรูปมันมืด */
+}
+
+/* แต่งตัวหนังสือแต่ละบรรทัดให้ใหญ่-เล็กเท่าต้นฉบับ */
+.hero-content h1 {
+    font-size: 55px;
+    margin-bottom: 5px;
+}
+
+.hero-content h2 {
+    font-size: 28px;
+    font-weight: normal;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #cccccc; /* สีเทาอ่อนๆ จะได้ไม่แย่งซีนหัวข้อ */
+}
+
+.price {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* ==================================
+   6. ปุ่มกดในแบนเนอร์ (ปุ่มขาว และ ปุ่มใส)
+================================== */
+.hero-buttons {
+    display: flex;
+    gap: 15px; /* ระยะห่างระหว่างปุ่ม 2 อัน */
+}
+
+.btn-buy {
+    background-color: #ffffff; /* ปุ่มสีขาว */
+    color: #000000; /* ตัวหนังสือสีดำ */
+    padding: 12px 30px; /* ความอ้วนของปุ่ม */
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px; /* ขอบปุ่มโค้งมน */
+    transition: all 0.3s ease; /* เอฟเฟกต์สมูทตอนเอาเมาส์ชี้ */
+}
+
+.btn-buy:hover {
+    background-color: #e6e6e6; /* ตอนเมาส์ชี้ให้ปุ่มสีหม่นลงนิดนึง */
+}
+
+.btn-learn {
+    background-color: transparent; /* ปุ่มโปร่งใส */
+    color: #ffffff;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-learn:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* เมาส์ชี้แล้วมีพื้นหลังขาวจางๆ โผล่มา */
+}
+
+/* ==================================
+   7. ปุ่มลูกศรซ้าย-ขวา (Slider Buttons)
+================================== */
+.slider-btn {
+    position: absolute; /* ลอยอยู่บนรูป */
+    top: 50%; /* ดันลงมาครึ่งจอ */
+    transform: translateY(-50%); /* ดึงกลับให้กึ่งกลางเป๊ะๆ */
+    
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* ทำให้ปุ่มเป็นวงกลม */
+    background-color: rgba(255, 255, 255, 0.2); /* พื้นหลังปุ่มเทาๆ โปร่งใส */
+    color: #ffffff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.slider-btn:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* ชี้แล้วสว่างขึ้น */
+}
+
+.slider-btn.prev {
+    left: 20px; /* เกาะขอบซ้าย */
+}
+
+.slider-btn.next {
+    right: 20px; /* เกาะขอบขวา */
+}
+
+/* ==================================
+   8. แถบขีดๆ ด้านล่าง (Indicators)
+================================== */
+.slider-indicators {
+    position: absolute; /* ลอยอยู่บนรูป */
+    bottom: 25px; /* ดันขึ้นมาจากขอบล่าง 25px */
+    left: 50%; /* ดันไปตรงกลาง */
+    transform: translateX(-50%); /* ดึงกลับให้ตรงกลางเป๊ะๆ */
+    
+    display: flex;
+    align-items: center;
+    gap: 10px; /* ระยะห่างระหว่างขีด */
+}
+
+.slider-indicators .line {
+    width: 45px; /* ความยาวของแต่ละขีด */
+    height: 3px; /* ความหนาของขีด */
+    background-color: rgba(255, 255, 255, 0.3); /* สีเทาโปร่งใส */
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.slider-indicators .line.active {
+    background-color: #ff6900; /* ขีดที่ทำงานอยู่ (สีส้ม) */
+}
+
+.slider-indicators .play-icon {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.slider-indicators .play-icon:hover {
+    color: #ffffff;
 }

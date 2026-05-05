@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web_tech_Project</title>
-    <link rel="stylesheet" href="./Main.css"> <!-- เรียก css มาจากอีกไฟล -->
+    <link rel="stylesheet" href="./Main.css"> <!-- เรียก css มาจากอีกไฟล์ -->
+    
     <!-- เอา Font มาจาก google font Itim -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,20 +14,64 @@
 <body>
 
     <!-- Start Navbar -->
-   <header class="navbar">     <!-- Navigationbarทั้งหมด-->
-        <div class="logo"><!-- เฉพาะ logo ตรงnavbar -->
-            <a href="./Main.html">Logohere</a> 
+    <header class="navbar">     <!-- Navigationbar ทั้งหมด (กล่องแม่) -->
+        
+        <!-- ส่วนที่ 1: โลโก้ (ซ้ายสุด) -->
+        <div class="logo">
+            <a href="./Main.html">
+                <!-- ใช้โลโก้ Xiaomi ของจริงเพื่อให้ขนาดความสูงพอดี -->
+                <img src="https://i01.appmifile.com/webfile/globalimg/mobile/logo/mi.png" alt="Logo" width="45">
+            </a> 
         </div>
-        <nav class="nav-link"><!-- เป็นตัวหนังสือที่กดบน navbar ได้ -->
-            <a href="#">content1</a>
-            <a href="#">content2</a>
-            <a href="#">content3</a>
-            <a href="#">Proflie</a>
+
+        <!-- ส่วนที่ 2: เมนูหลัก (ตรงกลาง) -->
+        <nav class="nav-link">
+            <!-- เป็นตัวหนังสือที่กดบน navbar ได้ (เปลี่ยนคำตามเว็บจริงกะระยะห่าง) -->
+            <a href="#">ร้านค้า</a>
+            <a href="#">โทรศัพท์มือถือ</a>
+            <a href="#">สมาร์ทโฮม</a>
+            <a href="#">ไลฟ์สไตล์</a>
+            <a href="#">บริการช่วยเหลือ</a>
         </nav>
-   </header>
-   <!-- End Navbar -->
 
-   
+        <!-- ส่วนที่ 3: เมนูไอคอน (ขวาสุด) -->
+        <div class="nav-icons">
+            <!-- ปุ่ม Emoji ชั่วคราวเดี๋ยวค่อยเปลี่ยนเป็นรูปไอคอนทีหลัง -->
+            <a href="#">🔍</a> <!-- ไอคอนค้นหา -->
+            <a href="#">🛒</a> <!-- ไอคอนตะกร้า -->
+            <a href="#">👤</a> <!-- ไอคอนโปรไฟล์ -->
+        </div>
 
+    </header>
+    <!-- End Navbar -->
+
+    <!-- Start แบนเนอร์ (Hero Section) -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Xiaomi Pad 8</h1>
+            <h2>ประสิทธิภาพระดับโปร</h2>
+            <p>ประสิทธิภาพการทำงานระดับ PC<br>ชิปเซ็ต Snapdragon® 8 Elite</p>
+            
+            <div class="price">ตั้งแต่ ฿11,990.00</div>
+            
+            <div class="hero-buttons">
+                <a href="#" class="btn-buy">ซื้อตอนนี้</a>
+                <a href="#" class="btn-learn">เรียนรู้เพิ่มเติม ❯</a>
+            </div>
+        </div>
+        <button class="slider-btn prev">❮</button>
+        <button class="slider-btn next">❯</button>
+
+        <!-- 🚀 สิ่งที่ต้องเพิ่ม: แถบสถานะด้านล่าง -->
+        <div class="slider-indicators">
+            <div class="line"></div>
+            <div class="line active"></div> <!-- เติม class active เพื่อให้ขีดนี้เป็นสีส้ม -->
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="play-icon">▶</div> <!-- ไอคอนเพลย์เล็กๆ ท้ายสุด -->
+        </div>
+    </section>
+    <!-- End แบนเนอร์ -->
 </body>
 </html>
