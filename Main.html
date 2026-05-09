@@ -4,29 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web_tech_Project</title>
-    <link rel="stylesheet" href="./Main.css"> <!-- เรียก css มาจากอีกไฟล์ -->
-    
-    <!-- เอา Font มาจาก google font Itim -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./Main.css"> 
 </head>
-<body>
 
-    <!-- Start Navbar -->
-    <header class="navbar">     <!-- Navigationbar ทั้งหมด (กล่องแม่) -->
-        
-        <!-- ส่วนที่ 1: โลโก้ (ซ้ายสุด) -->
+<body>
+    <!-- Navigation Bar -->
+    <header class="navbar">     
         <div class="logo">
             <a href="./Main.html">
-                <!-- ใช้โลโก้ Xiaomi ของจริงเพื่อให้ขนาดความสูงพอดี -->
                 <img src="https://i01.appmifile.com/webfile/globalimg/mobile/logo/mi.png" alt="Logo" width="45">
             </a> 
         </div>
 
-        <!-- ส่วนที่ 2: เมนูหลัก (ตรงกลาง) -->
         <nav class="nav-link">
-            <!-- เป็นตัวหนังสือที่กดบน navbar ได้ (เปลี่ยนคำตามเว็บจริงกะระยะห่าง) -->
             <a href="#">ร้านค้า</a>
             <a href="#">โทรศัพท์มือถือ</a>
             <a href="#">สมาร์ทโฮม</a>
@@ -34,21 +24,19 @@
             <a href="#">บริการช่วยเหลือ</a>
         </nav>
 
-        <!-- ส่วนที่ 3: เมนูไอคอน (ขวาสุด) -->
         <div class="nav-icons">
-            <!-- ปุ่ม Emoji ชั่วคราวเดี๋ยวค่อยเปลี่ยนเป็นรูปไอคอนทีหลัง -->
-            <a href="#">🔍</a> <!-- ไอคอนค้นหา -->
-            <a href="#">🛒</a> <!-- ไอคอนตะกร้า -->
-            <a href="#">👤</a> <!-- ไอคอนโปรไฟล์ -->
+            <a href="#">🔍</a>
+            <a href="#">🛒</a>
+            <a href="#">👤</a>
         </div>
-
     </header>
-    <!-- End Navbar -->
+    <!--End Navigation Bar -->
 
-    <!-- Start แบนเนอร์ (Hero Section) -->
+    <!-- Content on top -->
     <section class="hero-section">
         <div class="hero-content">
-            <h1>Xiaomi Pad 8</h1>
+            <img src="https://i02.appmifile.com/404_operator_th/31/03/2026/cf8bf6d87cf5cfe3af351dde6c39d14a.svg" alt="Xiaomi Pad 8 Title" class="hero-title-img">
+            
             <h2>ประสิทธิภาพระดับโปร</h2>
             <p>ประสิทธิภาพการทำงานระดับ PC<br>ชิปเซ็ต Snapdragon® 8 Elite</p>
             
@@ -62,16 +50,238 @@
         <button class="slider-btn prev">❮</button>
         <button class="slider-btn next">❯</button>
 
-        <!-- 🚀 สิ่งที่ต้องเพิ่ม: แถบสถานะด้านล่าง -->
-        <div class="slider-indicators">
+        <div class="slider-indicators">  <!-- เส้นโชวว่าเเบบเห้ยอยู่หน้าไหนว้าาาาา -->
             <div class="line"></div>
-            <div class="line active"></div> <!-- เติม class active เพื่อให้ขีดนี้เป็นสีส้ม -->
-            <div class="line"></div>
+            <div class="line active"></div>
             <div class="line"></div>
             <div class="line"></div>
-            <div class="play-icon">▶</div> <!-- ไอคอนเพลย์เล็กๆ ท้ายสุด -->
+            <div class="play-icon">▶</div>
         </div>
     </section>
-    <!-- End แบนเนอร์ -->
+    <!--End Content on top -->
+
+    <!-- Product Show -->
+    <section class="product-section">
+        <h2 class="section-title">ผลิตภัณฑ์ที่ร่วมรายการ</h2>
+        
+        <div class="product-tabs">
+            <a href="#" class="active">สินค้าใหม่</a>
+            <a href="#">ตอบโจทย์ทุกไลฟ์สไตล์</a>
+            <a href="#">เสริมประสิทธิภาพการทำงาน</a>
+            <a href="#">บ้านอัจฉริยะ</a>
+        </div>
+
+        <div class="product-carousel-wrapper">
+            
+            <button class="grid-nav-btn prev">❮</button>
+
+            <div class="product-grid">
+            
+                <div class="product-card featured-card">
+                    <div class="featured-img-container">
+                        <img src="https://i02.appmifile.com/635_operator_th/07/04/2026/78a67978e274a4e6982e7df9014a5126.jpg" alt="Xiaomi 17 Ultra Image">
+                    </div>
+                    <div class="featured-info">
+                        <img src="https://i02.appmifile.com/418_operator_th/07/04/2026/92343c233e0dfcc4694bbf81419346b2.svg" alt="Xiaomi 17 Ultra Logo" class="featured-logo">
+                        <p class="desc">Essential Leica Imagery<br><br>Leica 200MP Telephoto 75-100มม.<br>Leica UltraPure เลนส์ออปติคัล Leica APO</p>
+                        <p class="price">ตั้งแต่ ฿44,990.00</p>
+                        <a href="#" class="btn-buy-dark">เรียนรู้เพิ่มเติม</a>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://i02.appmifile.com/21_item_th/27/02/2026/9dfb9073b040573f60ce02e36d537c19.png" alt="Xiaomi Pad 8 Pro">
+                    <h3>Xiaomi Pad 8 Pro</h3>
+                    <p class="price">ตั้งแต่ ฿21,990.00</p>
+                </div>
+                
+                <div class="product-card">
+                    <img src="https://i02.appmifile.com/952_item_th/27/02/2026/196d32af9604e09f7ccb2ceb89bedf65.png" alt="Xiaomi Watch 5">
+                    <h3>Xiaomi Watch 5</h3>
+                    <p class="price">ตั้งแต่ ฿9,990.00</p>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://i02.appmifile.com/828_item_th/16/04/2026/7ff939d03a3d294922d1b337d6a467dd.png" alt="REDMI Pad 2 9.7">
+                    <h3>REDMI Pad 2 9.7</h3>
+                    <p class="price">ตั้งแต่ ฿4,999.00</p>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://i02.appmifile.com/578_item_th/13/03/2026/bb9882e0cbe521fd88a0eebddd56fc0c.png" alt="POCO X8 Pro">
+                    <h3>POCO X8 Pro</h3>
+                    <p class="price">ตั้งแต่ ฿10,999.00</p>
+                </div>
+            </div>
+            <button class="grid-nav-btn next">❯</button>
+        </div>
+    </section>
+    <!--End Product Show -->
+    
+    <!-- Best Promotion -->
+    <section class="promo-section">
+        
+        <div class="promo-header">
+            <h2 class="section-title">โปรโมชั่นพิเศษ</h2>
+            <div class="promo-arrows">
+                <button class="arrow-btn">❮</button>
+                <button class="arrow-btn">❯</button>
+            </div>
+        </div>
+
+        <div class="promo-grid">
+            
+            <div class="promo-card">
+                <div class="promo-img-box">
+                    <img src="https://i02.appmifile.com/230_operator_th/01/04/2024/5805019bfc7a4be481befdfffb1fcba6.jpg?thumb=1&w=420&f=webp&q=85" alt="โซนลูกค้าใหม่">
+                </div>
+                <div class="promo-info">
+                    <h3><span style="color:#ff6900;">■</span> โซนลูกค้าใหม่</h3>
+                    <p>คูปองส่วนลดสำหรับลูกค้าใหม่</p>
+                </div>
+            </div>
+
+            <div class="promo-card">
+                <div class="promo-img-box">
+                    <img src="https://i02.appmifile.com/733_item_th/20/04/2026/6ed8c00bc01304ba57e41d32a517242a.jpg?thumb=1&w=420&f=webp&q=85" alt="สินค้าใหม่">
+                </div>
+                <div class="promo-info">
+                    <h3>สินค้าใหม่</h3>
+                    <p>REDMI Watch 6<br>ใหม่</p>
+                </div>
+            </div>
+
+            <div class="promo-card">
+                <div class="promo-img-box">
+                    <img src="https://i02.appmifile.com/515_operator_th/29/01/2026/c2e57b484fc248b4c1f5e51663f2f14a.png?thumb=1&w=420&f=webp&q=85" alt="AIoT On Sale">
+                </div>
+                <div class="promo-info">
+                    <h3><span style="color:#ff6900;">⚡</span> AIoT On Sale</h3>
+                    <p>เรารวมส่วนลดเดือนนี้ไว้ให้แล้ว</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!--End Best Promotion -->
+
+    <!-- Know more -->
+    <section class="explore-section">
+        <div class="explore-header">
+            <h2 class="section-title">รู้จัก Xiaomi มากขึ้น</h2>
+            <div class="promo-arrows">
+                <button class="arrow-btn">❮</button>
+                <button class="arrow-btn">❯</button>
+            </div>
+        </div>
+        
+        <div class="explore-grid">
+            <div class="explore-card">
+                <img src="https://i02.appmifile.com/545_operator_th/27/03/2026/3962ca7edef71712ef8784ea806183ad.jpg?thumb=1&w=660&f=webp&q=85" alt="Smart Home">
+                <div class="explore-info">
+                    <h3>จากบ้านอัจฉริยะสู่ชีวิตที่คลาสสิกขึ้น</h3>
+                    <p>สัมผัสไลฟ์สไตล์สุดสมาร์ทและหรูหรา กับ Xiaomi</p>
+                </div>
+            </div>
+            <div class="explore-card">
+                <img src="https://i02.appmifile.com/516_operator_th/27/03/2026/f9134b27f2bd5478684faf203fda225b.png?thumb=1&w=660&f=webp&q=85" alt="Leica">
+                <div class="explore-info">
+                    <h3>Xiaomi x Leica การร่วมมือระดับโลก</h3>
+                    <p>สัมผัสเพื่อใช้ชีวิตกับขีดสุดของการถ่ายภาพ</p>
+                </div>
+            </div>
+            <div class="explore-card">
+                <img src="https://i02.appmifile.com/334_operator_th/27/03/2026/49e9d4e69eb4493920e8392fa42b425f.jpg?thumb=1&w=660&f=webp&q=85" alt="17 Ultra">
+                <div class="explore-info">
+                    <h3>Essential Leica Imagery</h3>
+                    <p>Xiaomi 17 Ultra ให้คุณเก็บภาพช่วงเวลาที่สำคัญ</p>
+                </div>
+            </div>
+            <div class="explore-card">
+                <img src="https://i02.appmifile.com/102_operator_th/27/03/2026/d0f3680f8a1152b26d7600de9d655ad2.jpg?thumb=1&w=660&f=webp&q=85" alt="Optics">
+                <div class="explore-info">
+                    <h3>Leica Optics เลนส์ระดับตำนาน</h3>
+                    <p>สมาร์ทโฟน ถ่ายภาพด้วยเลนส์ระดับมืออาชีพ</p>
+                </div>
+            </div>
+            <div class="explore-card">
+                <img src="https://i02.appmifile.com/242_operator_th/27/03/2026/344eb816cdde99f7036080063c30ff13.jpg?thumb=1&w=660&f=webp&q=85" alt="Optics">
+                <div class="explore-info">
+                    <h3>ประสิทธิภาพระดับโปร</h3>
+                    <p>Xiaomi Pad 8 Series มอบประสบการณ์ระดับพีซี ให้การทำงานทรงพลังได้ทุกที่</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--End Know more -->
+
+    <!-- Support  -->
+    <section class="support-section">
+        <h2 class="section-title">การสนับสนุนจาก Xiaomi</h2>
+        
+        <div class="support-grid">
+            <div class="support-item">
+                <div class="support-icon">📍</div> <h4>ค้นหาศูนย์บริการ</h4>
+                <p>ติดต่อเรา ผ่านไลฟ์แชท อีเมล หรือโทรศัพท์</p>
+            </div>
+            <div class="support-item">
+                <div class="support-icon">🛡️</div>
+                <h4>การรับประกัน</h4>
+                <p>ข้อมูลการรับประกันและนโยบายการคืนสินค้า</p>
+            </div>
+            <div class="support-item">
+                <div class="support-icon">📚</div>
+                <h4>คู่มือผู้ใช้</h4>
+                <p>ค้นหาและดาวน์โหลดคู่มือผู้ใช้สำหรับสินค้า</p>
+            </div>
+            <div class="support-item">
+                <div class="support-icon">💬</div>
+                <h4>คำถามที่พบบ่อย</h4>
+                <p>ค้นหาวิธีการแก้ปัญหาและคำแนะนำ</p>
+            </div>
+        </div>
+    </section>
+    <!--End Support  -->
+
+    
+    <!-- Other thing underweb -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>บริการช่วยเหลือ</h4>
+                <ul>
+                    <li><a href="#">ศูนย์บริการ</a></li>
+                    <li><a href="#">นโยบายการรับประกัน</a></li>
+                    <li><a href="#">คู่มือผู้ใช้</a></li>
+                    <li><a href="#">การติดตามสถานะการซ่อม</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>เกี่ยวกับเรา</h4>
+                <ul>
+                    <li><a href="#">เกี่ยวกับ Xiaomi</a></li>
+                    <li><a href="#">ความเป็นส่วนตัว</a></li>
+                    <li><a href="#">ความยั่งยืน</a></li>
+                    <li><a href="#">ติดต่อเรา</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>ค้นหาร้านค้า</h4>
+                <ul>
+                    <li><a href="#">Xiaomi Store</a></li>
+                    <li><a href="#">ร้านค้าตัวแทนจำหน่าย</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>ติดตามเรา</h4>
+                <div class="social-icons">
+                    <a href="#">FB</a>
+                    <a href="#">IG</a>
+                    <a href="#">X</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--End Other thing underweb -->
 </body>
 </html>

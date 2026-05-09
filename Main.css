@@ -1,182 +1,174 @@
-* { /* set default ของทุกอย่างใน web */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* ใช้บล็อกไม่ให้ขนาดเกินที่กำหนด */
-    font-family: 'Itim', sans-serif; /* set default ให้ใช้ Font itim ทั้ง web */
+/* Set default all */
+* { 
+    margin: 0;           /* ลบระยะขอบนอกที่เบราว์เซอร์แถมมาให้ */
+    padding: 0;          /* ลบระยะขอบใน */
+    box-sizing: border-box; /* ให้คำนวณขนาดกล่องรวม border และ padding ไปเลย */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
 }
 
 body {
-    height: 1500px; /* ใส่ความสูงหลอกๆ ไว้เทสตอนเลื่อนจอ */
-    background-color: #ffffff; /* เปลี่ยนเป็นสีขาวล้วนให้เหมือน Xiaomi */
+    background-color: #ffffff; 
 }
 
-/* ==================================
-   1. จัดการแถบ Navbar โดยรวม
-================================== */
+/*Start of NAVIGATION BAR */
 .navbar { 
-    display: flex;
-    justify-content: space-between; /* กระจาย 3 กล่อง ซ้าย-กลาง-ขวา */
-    align-items: center; /* ให้ทุกอย่างอยู่กึ่งกลางแนวตั้ง */
-    padding: 15px 100px; /* 🚨 อัปเดต: ให้ขอบตรงกับแบนเนอร์ด้านล่าง */
-    background-color: #ffffff; /* สีพื้นหลัง Navbar */
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08); /* ใส่เงาบางๆ ด้านล่างให้ดูเนียนตา */
-    position: sticky; /* lock ให้มันเลื่อนตามหน้าจอ */
-    top: 0;
-    z-index: 1000;
+    display: flex;       
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 15px 30px; 
+    background-color: #ffffff; 
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08); 
+    position: sticky;    
+    top: 0;              
+    z-index: 2000;       
+    
+    /* ล็อคความกว้างไม่ให้ทะลุจอ */
+    max-width: auto;   /* ตั้งให้ navbar มันยาวเต็มๆหน้าจอ */
+    margin: 0 auto; 
+    width: 100%;
 }
 
-/* ==================================
-   2. จัดการโลโก้ (ซ้ายสุด)
-================================== */
-.logo a {
-    display: flex;
-    text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
-}
-.logo img {
-    border-radius: 12px; /* ลบมุมกล่องโลโก้ให้โค้งมน */
+.logo a { 
+    display: flex; 
+    text-decoration: none; 
 }
 
-/* ==================================
-   3. จัดการเมนู (ตรงกลาง)
-================================== */
-.nav-link {
-    display: flex;
-    gap: 30px; /* ระยะห่างระหว่างหัวข้อเมนู */
+.logo img { 
+    border-radius: 12px; 
+}
+
+/* --- ส่วนลิงก์ข้อความตรงกลาง --- */
+.nav-link { 
+    display: flex; 
+    gap: 60px; /* distance between text 60px */
+    margin-left: 60px; /* margin ที่เซ็ตข้างซ้าย ให่ห่างจาก logo 60px เเล้วก็ปรับฝั้งขวาให้ auto เพื่อที่จะได้ดันมาชิดซ้าย */
+    margin-right: auto;
 }
 
 .nav-link a {
-    text-decoration: none; /* เอาเส้นใต้ลิงก์ออก */
-    color: #333333; /* สีตัวหนังสือเทาเข้ม */
-    font-size: 16px; /* ขนาดตัวอักษรกำลังดี */
-    font-weight: normal; /* ใช้ตัวบางๆ แบบมินิมอล */
-    white-space: nowrap; /* บังคับไม่ให้ตัวหนังสือตกบรรทัด */
-    position: relative; /* เพื่อเป็นกรอบให้เส้นสไลด์ */
-    padding-bottom: 5px; /* ดันเนื้อหาลงมานิดนึงไม่ให้อึดอัด */
-    transition: color 0.3s ease; /* ให้สีค่อยๆ เปลี่ยน */
+    text-decoration: none;  /* เอาเส้นใต้ออก */
+    color: #333333; 
+    font-size: 16px; 
+    font-weight: normal; 
+    position: relative;  
+    padding-bottom: 5px; 
+    transition: color 0.3s ease; 
 }
 
-/* สร้างเส้นปลอมซ่อนไว้ใต้ลิงก์ */
+/* เอฟเฟกต์เส้นใต้สีส้มวิ่งออกมาตอนเอาเมาส์ชี้ */
 .nav-link a::after {
-    content: ""; /* บังคับต้องมีเวลาใช้ ::after */
+    content: ""; 
     position: absolute;
     left: 0;
-    bottom: -16px; /* ดันเส้นให้อยู่ชิดขอบล่างของ Navbar พอดี */
-    width: 100%; /* ความยาวเส้นเท่ากับความยาวคำ */
-    height: 3px; /* ความหนาของเส้น */
+    bottom: -16px; 
+    width: 100%; 
+    height: 3px; 
     background-color: #ff6900; 
-
-    /* ตอนปกติสั่งให้ความยาวเส้นแกนX = 0 (มองไม่เห็น) */
     transform: scaleX(0); 
-    /* กำหนดจุดเริ่มขยายอยู่ฝั่งซ้ายสุด */
     transform-origin: left; 
-    /* ให้ขยายเส้นสมูท เวลา 0.3s */
     transition: transform 0.3s ease; 
 }
 
-/* ตอนเอาเมาส์ชี้เปลี่ยนเป็นสีส้ม Xiaomi */
-.nav-link a:hover {
+.nav-link a:hover { 
     color: #ff6900; 
 }
 
-/* เมาส์ชี้ให้ดึงเส้นปลอมที่ซ่อนอยู่ขยายออกมาเป็นขนาดจริง */
-.nav-link a:hover::after {
+.nav-link a:hover::after { 
     transform: scaleX(1); 
 }
 
-/* ==================================
-   4. จัดการไอคอน (ขวาสุด)
-================================== */
-.nav-icons {
-    display: flex;
-    gap: 20px; /* ระยะห่างระหว่างไอคอนแต่ละตัว */
-    align-items: center; /* จัดให้ไอคอนอยู่กึ่งกลางแนวตั้ง */
+/* --- ส่วนไอคอนขวาสุด --- */
+.nav-icons { 
+    display: flex; 
+    gap: 20px; 
+    align-items: center; 
 }
 
 .nav-icons a {
-    font-size: 20px; /* ขนาดของไอคอน */
+    font-size: 20px; 
     color: #333333; 
     text-decoration: none; 
-    transition: transform 0.2s ease; /* เตรียมตั้งค่าให้ขยายตัว */
+    transition: transform 0.2s ease; 
 }
 
-/* ตอนเอาเมาส์ชี้ให้ไอคอนขยายใหญ่ขึ้นนิดนึงแบบเด้งๆ */
-.nav-icons a:hover {
+.nav-icons a:hover { 
     transform: scale(1.2); 
 }
 
-/* ==================================
-   5. โซนแบนเนอร์ (Hero Section)
-================================== */
+
+/* ==============================================================
+   2. CONTENT ON TOP: โซนแบนเนอร์ (Hero Section)
+============================================================== */
 .hero-section {
     width: 100%;
-    height: 600px; /* ความสูงของแบนเนอร์ (ปรับลดเพิ่มได้ตามใจชอบ) */
-    
-    /* รูปภาพพื้นหลังของ Xiaomi Pad 8 ของจริง */
+    height: 600px; 
+    background-color: #080808; 
     background-image: url('https://i02.appmifile.com/202_operator_th/31/03/2026/df82765d0b6095651f0e2db334cbc4ef.jpg'); 
-    background-size: cover; /* สั่งให้รูปขยายเต็มกล่องพอดีเป๊ะ */
-    background-position: center; /* จัดให้รูปอยู่กึ่งกลางเสมอ */
-    
+    background-size: cover;  /* ขยายหรือย่อรูปภาพให้ใหญ่พอที่จะคลุมพื้นที่ของกล่องนั้นให้เต็ม 100% เสมอ */
+    background-position: center; 
     display: flex;
-    align-items: center; /* ดันกลุ่มข้อความให้อยู่กึ่งกลางแนวตั้ง */
-    
-    /* 🚨 อัปเดต: สองบรรทัดนี้แก้บั๊กปุ่มทับ! */
-    position: relative; /* ให้ปุ่มลูกศรมาเกาะที่กล่องนี้ */
-    padding: 0 100px; /* ขยับข้อความหนีปุ่ม (เพิ่มเป็น 100px) */
+    align-items: center; 
+    position: relative; 
+    padding: 0 100px; 
+    transition: background-image 0.5s step-end; /* ทำให้ตอนเปลี่ยนรูปมันสมูทๆ ไม่กระตุก */
 }
-
+/* เปลี่ยนรูปใต้ navbar */
+.hero-section:hover {
+    background-image: url('https://i02.appmifile.com/545_operator_th/27/03/2026/3962ca7edef71712ef8784ea806183ad.jpg');
+}
 .hero-content {
-    color: #ffffff; /* ตัวหนังสือสีขาว เพราะพื้นหลังรูปมันมืด */
+    color: #ffffff; 
+    max-width: 1226px; 
+    margin: 0 auto; 
+    width: 100%;
 }
 
-/* แต่งตัวหนังสือแต่ละบรรทัดให้ใหญ่-เล็กเท่าต้นฉบับ */
-.hero-content h1 {
-    font-size: 55px;
-    margin-bottom: 5px;
+.hero-title-img { 
+    height: 35px; 
+    margin-bottom: 15px; 
 }
 
-.hero-content h2 {
-    font-size: 28px;
-    font-weight: normal;
-    margin-bottom: 15px;
+.hero-content h2 { 
+    font-size: 26px; 
+    font-weight: 400; 
+    margin-bottom: 15px; 
 }
 
-.hero-content p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    color: #cccccc; /* สีเทาอ่อนๆ จะได้ไม่แย่งซีนหัวข้อ */
+.hero-content p { 
+    font-size: 18px; 
+    line-height: 1.6; 
+    margin-bottom: 30px; 
+    color: #cccccc; 
 }
 
-.price {
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 30px;
+.price { 
+    font-size: 22px; 
+    font-weight: bold; 
+    margin-bottom: 30px; 
 }
 
-/* ==================================
-   6. ปุ่มกดในแบนเนอร์ (ปุ่มขาว และ ปุ่มใส)
-================================== */
-.hero-buttons {
-    display: flex;
-    gap: 15px; /* ระยะห่างระหว่างปุ่ม 2 อัน */
+/* --- ปุ่มซื้อและเรียนรู้เพิ่มเติม --- */
+.hero-buttons { 
+    display: flex; 
+    gap: 15px; 
 }
 
 .btn-buy {
-    background-color: #ffffff; /* ปุ่มสีขาว */
-    color: #000000; /* ตัวหนังสือสีดำ */
-    padding: 12px 30px; /* ความอ้วนของปุ่ม */
+    background-color: #ffffff; 
+    color: #000000; 
+    padding: 12px 30px; 
     text-decoration: none;
     font-weight: bold;
-    border-radius: 10px; /* ขอบปุ่มโค้งมน */
-    transition: all 0.3s ease; /* เอฟเฟกต์สมูทตอนเอาเมาส์ชี้ */
+    border-radius: 10px; 
+    transition: all 0.3s ease; 
 }
 
-.btn-buy:hover {
-    background-color: #e6e6e6; /* ตอนเมาส์ชี้ให้ปุ่มสีหม่นลงนิดนึง */
+.btn-buy:hover { 
+    background-color: #e6e6e6; 
 }
 
 .btn-learn {
-    background-color: transparent; /* ปุ่มโปร่งใส */
+    background-color: transparent; 
     color: #ffffff;
     padding: 12px 30px;
     text-decoration: none;
@@ -185,22 +177,19 @@ body {
     transition: all 0.3s ease;
 }
 
-.btn-learn:hover {
-    background-color: rgba(255, 255, 255, 0.15); /* เมาส์ชี้แล้วมีพื้นหลังขาวจางๆ โผล่มา */
+.btn-learn:hover { 
+    background-color: rgba(255, 255, 255, 0.15); 
 }
 
-/* ==================================
-   7. ปุ่มลูกศรซ้าย-ขวา (Slider Buttons)
-================================== */
+/* --- ปุ่มลูกศรซ้าย-ขวา --- */
 .slider-btn {
-    position: absolute; /* ลอยอยู่บนรูป */
-    top: 50%; /* ดันลงมาครึ่งจอ */
-    transform: translateY(-50%); /* ดึงกลับให้กึ่งกลางเป๊ะๆ */
-    
-    width: 40px;
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    width: 40px; 
     height: 40px;
-    border-radius: 50%; /* ทำให้ปุ่มเป็นวงกลม */
-    background-color: rgba(255, 255, 255, 0.2); /* พื้นหลังปุ่มเทาๆ โปร่งใส */
+    border-radius: 50%; 
+    background-color: rgba(255, 255, 255, 0.2); 
     color: #ffffff;
     border: none;
     font-size: 16px;
@@ -208,51 +197,545 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.slider-btn:hover {
-    background-color: rgba(255, 255, 255, 0.5); /* ชี้แล้วสว่างขึ้น */
+.slider-btn:hover { 
+    background-color: rgba(255, 255, 255, 0.5); 
 }
 
-.slider-btn.prev {
-    left: 20px; /* เกาะขอบซ้าย */
+.slider-btn.prev { 
+    left: 20px; 
 }
 
-.slider-btn.next {
-    right: 20px; /* เกาะขอบขวา */
+.slider-btn.next { 
+    right: 20px; 
 }
 
-/* ==================================
-   8. แถบขีดๆ ด้านล่าง (Indicators)
-================================== */
+/* --- แถบขีดๆ บอกหน้าสไลด์ --- */
 .slider-indicators {
-    position: absolute; /* ลอยอยู่บนรูป */
-    bottom: 25px; /* ดันขึ้นมาจากขอบล่าง 25px */
-    left: 50%; /* ดันไปตรงกลาง */
-    transform: translateX(-50%); /* ดึงกลับให้ตรงกลางเป๊ะๆ */
-    
+    position: absolute; 
+    bottom: 25px; 
+    left: 50%; 
+    transform: translateX(-50%); 
     display: flex;
     align-items: center;
-    gap: 10px; /* ระยะห่างระหว่างขีด */
+    gap: 10px; 
 }
 
 .slider-indicators .line {
-    width: 45px; /* ความยาวของแต่ละขีด */
-    height: 3px; /* ความหนาของขีด */
-    background-color: rgba(255, 255, 255, 0.3); /* สีเทาโปร่งใส */
+    width: 45px; 
+    height: 3px; 
+    background-color: rgba(255, 255, 255, 0.3); 
     border-radius: 2px;
     cursor: pointer;
 }
 
-.slider-indicators .line.active {
-    background-color: #ff6900; /* ขีดที่ทำงานอยู่ (สีส้ม) */
+.slider-indicators .line.active { 
+    background-color: #ff6900; 
 }
 
 .slider-indicators .play-icon {
     color: rgba(255, 255, 255, 0.5);
-    font-size: 12px;
-    margin-left: 5px;
+    font-size: 12px; 
+    margin-left: 5px; 
     cursor: pointer;
 }
 
-.slider-indicators .play-icon:hover {
-    color: #ffffff;
+.slider-indicators .play-icon:hover { 
+    color: #ffffff; 
+}
+
+
+/* ==============================================================
+   3. PRODUCT SHOW: ผลิตภัณฑ์ที่ร่วมรายการ 
+============================================================== */
+.product-section {
+    padding: 50px 100px; 
+    background-color: #f5f5f5; 
+}
+
+/* ล็อคความกว้างโซนเนื้อหาทั้งหมดให้ตรงกับแบนเนอร์ */
+.product-tabs, 
+.section-title, 
+.product-carousel-wrapper {
+    max-width: 1226px;
+    margin-left: auto; 
+    margin-right: auto;
+    width: 100%;
+}
+
+.section-title { 
+    text-align: center; 
+    font-size: 32px; 
+    font-weight: 400; 
+    margin-bottom: 30px; 
+    color: #333333; 
+}
+
+/* --- แท็บหมวดหมู่ --- */
+.product-tabs { 
+    display: flex; 
+    justify-content: center; 
+    gap: 40px; 
+    margin-bottom: 40px; 
+}
+
+.product-tabs a { 
+    text-decoration: none; 
+    color: #777777; 
+    font-size: 18px; 
+    transition: color 0.3s ease; 
+}
+
+.product-tabs a:hover { 
+    color: #ff6900; 
+}
+
+.product-tabs a.active { 
+    color: #ff6900; 
+    border-bottom: 2px solid #ff6900; 
+    padding-bottom: 5px; 
+}
+
+/* --- โครงสร้างหุ้มตารางและปุ่มกด --- */
+.product-carousel-wrapper { 
+    position: relative; 
+}
+
+/* ปุ่มลูกศรของตารางสินค้า */
+.grid-nav-btn {
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%);
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.05); 
+    color: #333; 
+    border: none; 
+    font-size: 16px;
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+    z-index: 10;
+}
+
+.grid-nav-btn:hover { 
+    background-color: rgba(0, 0, 0, 0.15); 
+}
+
+.grid-nav-btn.prev { 
+    left: -30px; 
+} 
+
+.grid-nav-btn.next { 
+    right: -30px; 
+}
+
+/* --- ตารางสินค้า (CSS Grid) --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 15px; 
+}
+
+/* การ์ดสินค้าใบเล็ก */
+.product-card {
+    background-color: #ffffff; 
+    padding: 40px 20px; 
+    text-align: center; 
+    border-radius: 4px; 
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.product-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+}
+
+.product-card img { 
+    width: 160px; 
+    height: 160px; 
+    object-fit: contain; 
+    margin-bottom: 20px; 
+
+}
+
+.product-card h3 { 
+    font-size: 20px; 
+    font-weight: 500; 
+    color: #333333; 
+    margin-bottom: 5px; 
+}
+
+.product-card .desc { 
+    font-size: 14px; 
+    color: #b0b0b0; 
+    margin-bottom: 15px; 
+}
+
+.product-card .price { 
+    font-size: 18px; 
+    color: #ff6900; 
+    font-weight: 500; 
+}
+
+/* --- การ์ดสินค้าใบใหญ่สุด (Featured Card - 17 Ultra) --- */
+.product-card.featured-card {
+    grid-column: span 4; 
+    display: flex;       
+    align-items: stretch; 
+    padding: 0; 
+    overflow: hidden; 
+    min-height: 420px; 
+}
+
+.featured-img-container { 
+    width: 50%; 
+}
+
+.featured-img-container img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    margin: 0; 
+}
+
+.featured-info { 
+    width: 50%; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    padding: 40px; 
+}
+
+.featured-logo { 
+    height: 35px; 
+    margin-bottom: 15px; 
+}
+
+.featured-info .desc { 
+    font-size: 14px; 
+    color: #666; 
+    margin-bottom: 20px; 
+    line-height: 1.8; 
+}
+
+.featured-info .price { 
+    font-size: 18px; 
+    color: #333; 
+    margin-bottom: 25px; 
+}
+
+.btn-buy-dark {
+    background-color: #222; 
+    color: #fff; 
+    padding: 12px 35px;
+    border-radius: 25px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    transition: background-color 0.3s;
+}
+
+.btn-buy-dark:hover { 
+    background-color: #000; 
+} 
+
+
+/* ==============================================================
+   4. BEST PROMOTION: โปรโมชั่นพิเศษ
+============================================================== */
+.promo-section { 
+    padding: 50px 100px; 
+    background-color: #ffffff; 
+}
+
+/* ล็อคความกว้าง */
+.promo-header, 
+.promo-grid { 
+    max-width: 1226px; 
+    margin: 0 auto; 
+    width: 100%; 
+}
+
+.promo-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 30px; 
+}
+
+.promo-header .section-title { 
+    margin: 0 auto; 
+    transform: translateX(35px); 
+    margin-bottom: 0; 
+}
+
+.promo-arrows { 
+    display: flex; 
+    gap: 10px; 
+}
+
+.arrow-btn {
+    width: 32px; 
+    height: 32px; 
+    border-radius: 50%; 
+    border: none;
+    background-color: #f0f0f0; 
+    cursor: pointer; 
+    color: #999; 
+    font-size: 14px; 
+    transition: 0.3s;
+}
+
+.arrow-btn:hover { 
+    background-color: #d0d0d0; 
+}
+
+/* ตารางโปรโมชั่น */
+.promo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+}
+
+.promo-card {
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    text-align: center; 
+    cursor: pointer; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.promo-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+}
+
+.promo-img-box { 
+    width: 100%; 
+    height: 280px; 
+    background-color: #f5f5f5; 
+}
+
+.promo-img-box img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.promo-info { 
+    padding: 25px 20px; 
+}
+
+.promo-info h3 { 
+    font-size: 18px; 
+    color: #333; 
+    margin-bottom: 8px; 
+    font-weight: bold; 
+}
+
+.promo-info p { 
+    font-size: 14px; 
+    color: #777; 
+    line-height: 1.5; 
+}
+
+
+/* ==============================================================
+   5. KNOW MORE: รู้จัก Xiaomi มากขึ้น 
+============================================================== */
+.explore-section { 
+    padding: 50px 100px; 
+    background-color: #f5f5f5; 
+}
+
+.explore-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 30px; 
+    max-width: 1226px; 
+    margin: 0 auto;
+}
+
+.explore-header .section-title { 
+    margin: 0 auto; 
+    transform: translateX(35px); 
+    margin-bottom: 0; 
+}
+
+/* กล่องควบคุมการไถสไลด์ */
+.explore-grid {
+    display: flex; 
+    gap: 20px; 
+    max-width: 1226px; 
+    margin: 0 auto;
+    overflow-x: auto; 
+    scroll-snap-type: x mandatory; 
+    scroll-behavior: smooth; 
+    padding-bottom: 20px; 
+}
+
+.explore-grid::-webkit-scrollbar { 
+    display: none; 
+}
+
+.explore-card {
+    background-color: #ffffff; 
+    border-radius: 10px; 
+    overflow: hidden; 
+    cursor: pointer; 
+    transition: 0.3s;
+    flex: 0 0 290px; 
+    scroll-snap-align: start; 
+}
+
+.explore-card:hover { 
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+}
+
+.explore-card img { 
+    width: 100%; 
+    height: 180px; 
+    object-fit: cover; 
+}
+
+.explore-info { 
+    padding: 20px; 
+    text-align: center; 
+}
+
+.explore-info h3 { 
+    font-size: 16px; 
+    color: #333; 
+    margin-bottom: 10px; 
+}
+
+.explore-info p { 
+    font-size: 13px; 
+    color: #777; 
+    line-height: 1.5; 
+}
+
+
+/* ==============================================================
+   6. SUPPORT: การสนับสนุนจาก Xiaomi 
+============================================================== */
+.support-section { 
+    padding: 60px 100px; 
+    background-color: #ffffff; 
+}
+
+.support-grid {
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px; 
+    max-width: 1226px; 
+    margin: 0 auto;
+}
+
+.support-item { 
+    text-align: center; 
+    padding: 10px; 
+    cursor: pointer; 
+}
+
+.support-icon { 
+    font-size: 40px; 
+    margin-bottom: 15px; 
+    color: #777; 
+}
+
+.support-item h4 { 
+    font-size: 16px; 
+    color: #333; 
+    margin-bottom: 10px; 
+}
+
+.support-item p { 
+    font-size: 13px; 
+    color: #777; 
+    line-height: 1.5; 
+}
+
+
+/* ==============================================================
+   7. FOOTER: ส่วนล่างสุดของเว็บไซต์
+============================================================== */
+.footer-section {
+    background-color: #191919; 
+    color: #b0b0b0; 
+    padding-top: 50px; 
+    margin-top: 50px; 
+}
+
+.footer-container {
+    max-width: 1226px; 
+    margin: 0 auto;
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px; 
+    padding: 0 100px 40px; 
+}
+
+.footer-column h4 { 
+    color: #ffffff; 
+    font-size: 16px; 
+    margin-bottom: 20px; 
+    font-weight: 500; 
+}
+
+.footer-column ul { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+.footer-column ul li { 
+    margin-bottom: 12px; 
+}
+
+.footer-column ul li a {
+    color: #b0b0b0; 
+    text-decoration: none; 
+    font-size: 14px; 
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover { 
+    color: #ff6900; 
+}
+
+/* ไอคอนโซเชียล */
+.social-icons { 
+    display: flex; 
+    gap: 15px; 
+}
+
+.social-icons a {
+    color: #ffffff; 
+    background-color: #333333; 
+    width: 35px; 
+    height: 35px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    border-radius: 50%; 
+    text-decoration: none; 
+    font-size: 14px; 
+    transition: 0.3s;
+}
+
+.social-icons a:hover { 
+    background-color: #ff6900; 
+}
+
+/* ลิขสิทธิ์ล่างสุด */
+.footer-bottom {
+    border-top: 1px solid #333333; 
+    text-align: center; 
+    padding: 20px 0; 
+    font-size: 14px;
 }
