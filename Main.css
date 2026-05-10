@@ -739,3 +739,143 @@ body {
     padding: 20px 0; 
     font-size: 14px;
 }
+
+
+
+/* ==============================================================
+   📱 8. RESPONSIVE DESIGN: ปรับหน้าเว็บให้เข้ากับมือถือและแท็บเล็ต
+============================================================== */
+
+/* 📌 สำหรับหน้าจอขนาดกลาง (แท็บเล็ต) หรือจอคอมที่ย่อลงมา */
+@media (max-width: 1024px) {
+    /* 1. ลดระยะขอบซ้ายขวาลง จะได้ไม่บีบเนื้อหาเกินไป */
+    .navbar, .hero-section, .product-section, .promo-section, .explore-section, .support-section {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    
+    /* 2. ซ่อนเมนูตัวหนังสือตรงกลางไปก่อน (เหลือแค่โลโก้กับไอคอนขวาสุด) */
+    .nav-link {
+        display: none; 
+    }
+
+    /* 3. ตารางสินค้าจาก 4 ช่อง บีบเหลือ 2 ช่อง */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* การ์ดใบใหญ่สุดให้กินพื้นที่แค่ 2 ช่องพอ */
+    .product-card.featured-card {
+        grid-column: span 2;
+        flex-direction: column; /* จับรูปกับข้อความมาซ้อนกันแนวตั้ง */
+    }
+    .featured-img-container, .featured-info {
+        width: 100%;
+    }
+}
+
+/* 📌 สำหรับหน้าจอขนาดเล็ก (โทรศัพท์มือถือ) */
+@media (max-width: 768px) {
+    /* 1. แบนเนอร์บนสุด ลดความสูงลงมานิดนึง */
+    .hero-section {
+        height: 450px;
+    }
+    .hero-content h2 {
+        font-size: 22px;
+    }
+
+    /* 2. โซนโปรโมชั่นจาก 3 ช่อง บีบเหลือช่องเดียว เรียงยาวลงมา */
+    .promo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* 3. โซนไอคอนซัพพอร์ตจาก 4 ช่อง บีบเหลือแถวละ 2 ช่อง */
+    .support-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* 4. Footer จาก 4 ล็อค บีบเหลือแถวละ 2 ล็อค */
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 30px 40px;
+    }
+}
+
+@media (min-width: 480px) {
+    /* ทุบตารางทุกอย่างให้เหลือแค่ 1 คอลัมน์เรียงยาวลงมาให้หมด! */
+    .product-grid, .support-grid, .footer-container {
+        grid-template-columns: 1fr;
+    }
+    .product-card.featured-card {
+        grid-column: span 1;
+    }
+}
+
+/* ==============================================================
+   📱 8. RESPONSIVE DESIGN: ปรับหน้าเว็บให้เข้ากับมือถือและแท็บเล็ต
+============================================================== */
+
+/* 📌 1. สำหรับ แท็บเล็ต (หน้าจอไม่เกิน 1024px) */
+@media (max-width: 1024px) {
+    /* ลดระยะขอบซ้ายขวา */
+    .navbar, .hero-section, .product-section, .promo-section, .explore-section, .support-section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    /* ซ่อนเมนูตัวหนังสือตรงกลางของ Navbar */
+    .nav-link { display: none; }
+
+    /* 🚨 ตารางสินค้า: จัดให้เป็น 2 คอลัมน์ (เหมือนเว็บแท้) */
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* 🚨 การ์ดใหญ่สุด: ให้กินพื้นที่ 2 คอลัมน์ และจับรูปซ้อนบนข้อความ */
+    .product-card.featured-card {
+        grid-column: span 2;
+        flex-direction: column; /* ซ้อนแนวตั้ง */
+        min-height: auto;
+    }
+    .featured-img-container, .featured-info {
+        width: 100%;
+    }
+    .featured-info { padding: 30px; }
+
+    /* โปรโมชั่นและ Footer แบ่งเป็น 2 คอลัมน์ */
+    .promo-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-container { grid-template-columns: repeat(2, 1fr); padding: 0 20px 40px; }
+}
+
+/* 📌 2. สำหรับ โทรศัพท์มือถือ (หน้าจอไม่เกิน 768px) */
+@media (max-width: 768px) {
+    /* ปรับขนาดแบนเนอร์และข้อความไม่ให้ล้นจอ */
+    .hero-section { height: 450px; }
+    .hero-content h2 { font-size: 22px; }
+    .hero-content p { font-size: 14px; margin-bottom: 20px; }
+
+    /* 🚨 เวทมนตร์แก้แท็บเมนูเละ: บังคับให้อยู่บรรทัดเดียว แล้วใช้การ "ไถซ้ายขวา (Scroll)" แทน */
+    .product-tabs {
+        justify-content: flex-start;
+        overflow-x: auto; /* เปิดให้ใช้นิ้วไถได้ */
+        white-space: nowrap; /* ห้ามตัวหนังสือตัดขึ้นบรรทัดใหม่ */
+        padding-bottom: 10px;
+        gap: 20px;
+    }
+    .product-tabs::-webkit-scrollbar { display: none; } /* ซ่อนหลอดแถบเลื่อนให้ดูเนียนตา */
+
+    /* ลดขนาดรูปสินค้าในมือถือลงหน่อย จะได้ไม่ดูอ้วน */
+    .product-card { padding: 20px 10px; }
+    .product-card img { width: 120px; height: 120px; }
+
+    /* โซนโปรโมชั่นบีบเหลือ 1 คอลัมน์เรียงยาว */
+    .promo-grid { grid-template-columns: 1fr; }
+
+    /* ไอคอนซัพพอร์ตเหลือแถวละ 2 ช่อง */
+    .support-grid { grid-template-columns: repeat(2, 1fr); }
+}
+    /* บังคับรูปและข้อความในการ์ดใหญ่สุดให้กว้างเต็มช่อง 100% */
+    .featured-img-container, .featured-info {
+        width: 100%;
+        padding: 20px; /* เพิ่ม Padding นิดนึง จะได้ไม่ชิดขอบการ์ดเกินไปเวลาซ้อนแนวตั้ง */
+    }
+}
