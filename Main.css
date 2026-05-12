@@ -105,7 +105,7 @@ html, body {
     overflow: hidden; /* 🚨 สำคัญมาก! ตัดขอบรูปส่วนที่ล้นทิ้ง */
 }
 
-/* 🚨 คุมรูปภาพให้อยู่หลังสุดและคลุมเต็มจอพอดี */
+
 .hero-bg {
     position: absolute;
     top: 0;
@@ -115,6 +115,9 @@ html, body {
     object-fit: cover; /* บังคับรูปให้เต็มกล่องโดยไม่เสียสัดส่วน */
     object-position: center;
     z-index: 0; 
+}
+.hero-bg-mobile{
+    display: none;
 }
 /* เอฟเฟกต์เปลี่ยนรูปตอนเมาส์ชี้ */
 .hero-section:hover .hero-bg { 
@@ -713,29 +716,38 @@ html, body {
     }
 
    /* 🚨 แบนเนอร์มือถือ */
-    .hero-section { 
+    .hero-section{ 
         height: 550px; 
-        padding-top: 40px; 
+        padding:0; 
         align-items: flex-start; 
-        background-color: #080808; 
+        background-color: black; 
     }
     
    /* 🚨 เวทมนตร์ขั้นสุดยอด: ล็อครูปให้อยู่กึ่งกลางตลอดกาล! ไม่สไลด์หนีตามจอ! */
-    .hero-bg {
+    .hero-bg-mobile {
         top: auto; 
         bottom: 0; 
-        left: 50%; /* เริ่มตรงกลางจอ */
-        transform: translateX(-50%); /* ดึงรูปกลับให้ตรงเซ็นเตอร์เป๊ะ */
-        width: 900px; /* 🚨 ล็อคความกว้างไว้เลย รูปจะได้ไม่ยืดหดตามจอ */
-        max-width: none; /* กันเบราว์เซอร์ไปบีบรูป */
-        height: 45%; 
-        object-fit: cover;
-        object-position: 73% bottom; /* ล็อคเป้าให้เห็นแท็บเล็ตสวยๆ */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        position: absolute;
+
     }
     
+    .hero-bg{
+        display: none;
+    }
+
     /* 🚨 จัดทรงตัวหนังสือ โลโก้ และปุ่ม ให้คลีนและอยู่ตรงกลางเป๊ะ */
     .hero-content { 
         text-align: center; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
     }
 
     
@@ -755,9 +767,10 @@ html, body {
         margin-bottom: 20px; 
     }
 
-    .price {
+    #price {
         font-size: 18px; /* ย่อราคาลงให้พอดีจอมือถือ */
         margin-bottom: 20px;
+        
     }
     
     .hero-buttons { 
