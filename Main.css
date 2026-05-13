@@ -1,15 +1,21 @@
 /* Set default all */
 * {
-    margin: 0;           /* ลบระยะขอบนอกที่เบราว์เซอร์แถมมาให้ */
-    padding: 0;          /* ลบระยะขอบใน */
-    box-sizing: border-box; /* ให้คำนวณขนาดกล่องรวม border และ padding ไปเลย */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
-html, body {
-    background-color: #ffffff;
-    overflow-x: hidden; /* กันล้นจอ*/
+
+/* 🚨 1. แยก html ออกมา แล้วใส่ความสมูทเข้าไป */
+html {
+    scroll-behavior: smooth; 
 }
 
+/* 🚨 2. ให้ body จัดการเรื่องพื้นหลังและกันจอทะลุ (ห้ามใส่ overflow ที่ html) */
+body {
+    background-color: #ffffff;
+    overflow-x: hidden; 
+}
 /*Start of NAVIGATION BAR */
 .navbar {
     display: flex;       
@@ -106,23 +112,44 @@ html, body {
 }
 
 
-.hero-bg {
+/* ลบ .hero-bg และ .hero-bg-mobile ของเดิมในโค้ดนายทิ้งไปเลยนะ! */
+
+.slider-track {
+    display: flex;
+    width: 400%; /* เพราะมี 4 รูป เลยกว้าง 4 เท่าของหน้าจอ */
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    /* 🚨 เวทมนตร์ความสมูทอยู่นี่! (เลื่อนนุ่มๆ 0.7 วินาที) */
+    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1); 
+    z-index: 0;
+}
+
+.slider-track img {
+    width: 25%; /* แต่ละรูปกว้าง 1 ใน 4 ของราง */
     height: 100%;
-    object-fit: cover; /* บังคับรูปให้เต็มกล่องโดยไม่เสียสัดส่วน */
-    object-position: center;
-    z-index: 0; 
+    object-fit: cover;
+    object-position: 82% center; /* ล็อกเป้าแท็บเล็ตให้อยู่กึ่งกลาง */
+}
+
+/* ทำให้เส้นสีส้มค่อยๆ ยืดออกตอนถูกเลือก */
+.slider-indicators .line {
+    transition: all 0.4s ease;
+}
+.slider-indicators .line.active {
+    width: 60px; /* ให้เส้นมันยาวขึ้นนิดนึงตอนโดนเลือก */
+    background-color: #ff6900;
+}
+
+/* ทำให้ข้อความค่อยๆ เฟด */
+.hero-content {
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 .hero-bg-mobile{
     display: none;
 }
-/* เอฟเฟกต์เปลี่ยนรูปตอนเมาส์ชี้ */
-.hero-section:hover .hero-bg { 
-    content: url('https://i02.appmifile.com/545_operator_th/27/03/2026/3962ca7edef71712ef8784ea806183ad.jpg'); 
-}
+
 
 /* 🚨 ลอยตัวอักษรและปุ่มต่างๆ ขึ้นมาไว้บนรูป */
 .hero-content, .slider-btn, .slider-indicators {
@@ -693,9 +720,6 @@ html, body {
    📱 8. RESPONSIVE DESIGN (ดักเฉพาะ UI มือถือ)
 ============================================================== */
 @media (max-width: 768px) {
-    
-
-   /* ลดระยะขอบซ้ายขวาให้เหมาะกับจอเล็ก */
     .navbar, 
     .hero-section, 
     .product-section, 
@@ -707,7 +731,7 @@ html, body {
         padding-right: 20px;
     }
     
-    /* ซ่อนเมนูตรงกลาง และปุ่มลูกศรต่างๆ เพราะมือถือใช้นิ้วไถได้ */
+    /* ซ่อนปุ่มกดซ้ายขวาบน preview ใต้ navabar */
     .nav-link, 
     .slider-btn, 
     .grid-nav-btn, 
@@ -740,7 +764,7 @@ html, body {
         display: none;
     }
 
-    /* 🚨 จัดทรงตัวหนังสือ โลโก้ และปุ่ม ให้คลีนและอยู่ตรงกลางเป๊ะ */
+    /* Text Logo Button ให้อยู่ตรงกลาง */
     .hero-content { 
         text-align: center; 
         display: flex;
@@ -750,10 +774,9 @@ html, body {
 
     }
 
-    
     .hero-title-img { 
-        height: 28px; /* ย่อไซส์โลโก้ลงมา จะได้ไม่เบียดข้อความ */
-        margin: 0 auto 12px auto; /* 🚨 บังคับโลโก้ให้อยู่กลางจอ 1000% */
+        height: 8px; /* ย่อไซส์โลโก้ลงมา จะได้ไม่เบียดข้อความ */
+        margin: 0 auto 12px auto;
         display: block;
     }
 
