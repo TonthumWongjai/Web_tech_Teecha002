@@ -11,40 +11,42 @@
     <header class="navbar">     
         <div class="logo">
             <a href="./Main.html">
-                <img src="https://i01.appmifile.com/webfile/globalimg/mobile/logo/mi.png" alt="Logo" width="35">
+                <img src="./Picture/Teechalogo.png" alt="Logo" width="35">
             </a> 
         </div>
 
         <nav class="nav-link">
-            <a href="#">ร้านค้า</a>
-            <a href="#">โทรศัพท์มือถือ</a>
-            <a href="#">สมาร์ทโฮม</a>
-            <a href="#">ไลฟ์สไตล์</a>
-            <a href="#">บริการช่วยเหลือ</a>
+            <a href="#hero-section">About ME</a>
+            <a href="#product-section">Recommend</a>
+            <a href="#promo-section">Promotion</a>
+            <a href="#explore-section">About Me More</a>
+            <a href="#footer-section">Contact</a>
         </nav>
 
         <div class="nav-icons">
             <a href="#">🔍</a>
             <a href="#">🛒</a>
-            <a href="#">👤</a>
-        </div> 
-    </header>
-<section class="hero-section"><!-- Picture Here -->
-        <div class="slider-track" id="slider-track">
-            <img src="https://i02.appmifile.com/202_operator_th/31/03/2026/df82765d0b6095651f0e2db334cbc4ef.jpg" alt="Slide 1">
-            <img src="https://i02.appmifile.com/545_operator_th/27/03/2026/3962ca7edef71712ef8784ea806183ad.jpg" alt="Slide 2">
-            <img src="https://i02.appmifile.com/334_operator_th/27/03/2026/49e9d4e69eb4493920e8392fa42b425f.jpg" alt="Slide 3">
-            <img src="https://i02.appmifile.com/102_operator_th/27/03/2026/d0f3680f8a1152b26d7600de9d655ad2.jpg" alt="Slide 4">
+            <a href="#footer-section">👤</a>
         </div>
+    </header>
 
+    <section class="hero-section" id="hero-section"> 
+        <div class="slider-track" id="slider-track">
+            <img src="./Picture/Phone04.png" class="img-desktop" alt="Slide 1">
+            
+            <img src="./Picture/Moblie.png" class="img-mobile" alt="Slide 1 Mobile">
+            
+            <img src="./Picture/Anime.png" alt="Slide 2">
+            <img src="./Picture/Miside2026.05.14-22.33.56.01-ezgif.com-video-to-gif-converter (1).gif" alt="Slide 3">
+            <img src="./Picture/Furina.gif" width="5" alt="Slide 4">
+        </div>
         <div class="hero-content" id="hero-content">
-            <img src="https://i02.appmifile.com/404_operator_th/31/03/2026/cf8bf6d87cf5cfe3af351dde6c39d14a.svg" alt="Xiaomi Title" class="hero-title-img">
-            <h2>ประสิทธิภาพระดับโปร</h2>
-            <p>ประสิทธิภาพการทำงานระดับ PC<br>ชิปเซ็ต Snapdragon® 8 Elite</p>
-            <div class="price">ตั้งแต่ ฿11,990.00</div>
+            <h1>Teecha002</h1>
+            <h2></h2>
+            <p></p>
+            <div class="price"></div>
             
             <div class="hero-buttons">
-                <a href="#" class="btn-buy">ซื้อตอนนี้</a>
                 <a href="#product-section" class="btn-learn">เรียนรู้เพิ่มเติม ❯</a>
             </div>
         </div>
@@ -57,22 +59,21 @@
             <div class="line"></div>
             <div class="line"></div>
             <div class="line"></div>
-            <div class="play-icon">▶</div>
         </div>
     </section>
+
     <section class="product-section" id="product-section">
         <h2 class="section-title">ผลิตภัณฑ์ที่ร่วมรายการ</h2>
         
         <div class="product-tabs">
-            <a href="#" class="active">สินค้าใหม่</a>
-            <a href="#">ตอบโจทย์ทุกไลฟ์สไตล์</a>
-            <a href="#">เสริมประสิทธิภาพการทำงาน</a>
-            <a href="#">บ้านอัจฉริยะ</a>
+            <a href="#" class="tab-btn active" data-tab="1">สินค้าใหม่</a>
+            <a href="#" class="tab-btn" data-tab="2">ตอบโจทย์ทุกไลฟ์สไตล์</a>
+            <a href="#" class="tab-btn" data-tab="3">เสริมประสิทธิภาพการทำงาน</a>
+            <a href="#" class="tab-btn" data-tab="4">บ้านอัจฉริยะ</a>
         </div>
 
         <div class="product-carousel-wrapper">
-            <div class="product-grid">
-            
+            <div class="product-grid tab-content" id="tab-1" style="display: grid;">
                 <div class="product-card featured-card">
                     <div class="featured-img-container">
                         <img src="https://i02.appmifile.com/635_operator_th/07/04/2026/78a67978e274a4e6982e7df9014a5126.jpg" alt="Xiaomi 17 Ultra Image">
@@ -90,29 +91,42 @@
                     <h3>Xiaomi Pad 8 Pro</h3>
                     <p class="price">ตั้งแต่ ฿21,990.00</p>
                 </div>
-                
                 <div class="product-card">
                     <img src="https://i02.appmifile.com/952_item_th/27/02/2026/196d32af9604e09f7ccb2ceb89bedf65.png" alt="Xiaomi Watch 5">
                     <h3>Xiaomi Watch 5</h3>
                     <p class="price">ตั้งแต่ ฿9,990.00</p>
                 </div>
-
                 <div class="product-card">
                     <img src="https://i02.appmifile.com/828_item_th/16/04/2026/7ff939d03a3d294922d1b337d6a467dd.png" alt="REDMI Pad 2 9.7">
                     <h3>REDMI Pad 2 9.7</h3>
                     <p class="price">ตั้งแต่ ฿4,999.00</p>
                 </div>
-
                 <div class="product-card">
                     <img src="https://i02.appmifile.com/578_item_th/13/03/2026/bb9882e0cbe521fd88a0eebddd56fc0c.png" alt="POCO X8 Pro">
                     <h3>POCO X8 Pro</h3>
                     <p class="price">ตั้งแต่ ฿10,999.00</p>
                 </div>
             </div>
+
+            <div class="product-grid tab-content" id="tab-2" style="display: none; opacity: 0;">
+                <div class="product-card" style="grid-column: span 4;">
+                    <h3>แท็บ 2: ตอบโจทย์ไลฟ์สไตล์</h3>
+                </div>
+            </div>
+            <div class="product-grid tab-content" id="tab-3" style="display: none; opacity: 0;">
+                <div class="product-card" style="grid-column: span 4;">
+                    <h3>แท็บ 3: เสริมประสิทธิภาพ</h3>
+                </div>
+            </div>
+            <div class="product-grid tab-content" id="tab-4" style="display: none; opacity: 0;">
+                <div class="product-card" style="grid-column: span 4;">
+                    <h3>แท็บ 4: บ้านอัจฉริยะ</h3>
+                </div>
+            </div>
         </div>
     </section>
-    <section class="promo-section">
-        
+
+    <section class="promo-section" id="promo-section">
         <div class="promo-header">
             <h2 class="section-title">โปรโมชั่นพิเศษ</h2>
             <div class="promo-arrows">
@@ -120,9 +134,7 @@
                 <button class="arrow-btn">❯</button>
             </div>
         </div>
-
         <div class="promo-grid">
-            
             <div class="promo-card">
                 <div class="promo-img-box">
                     <img src="https://i02.appmifile.com/230_operator_th/01/04/2024/5805019bfc7a4be481befdfffb1fcba6.jpg?thumb=1&w=420&f=webp&q=85" alt="โซนลูกค้าใหม่">
@@ -132,7 +144,6 @@
                     <p>คูปองส่วนลดสำหรับลูกค้าใหม่</p>
                 </div>
             </div>
-
             <div class="promo-card">
                 <div class="promo-img-box">
                     <img src="https://i02.appmifile.com/733_item_th/20/04/2026/6ed8c00bc01304ba57e41d32a517242a.jpg?thumb=1&w=420&f=webp&q=85" alt="สินค้าใหม่">
@@ -142,7 +153,6 @@
                     <p>REDMI Watch 6<br>ใหม่</p>
                 </div>
             </div>
-
             <div class="promo-card">
                 <div class="promo-img-box">
                     <img src="https://i02.appmifile.com/515_operator_th/29/01/2026/c2e57b484fc248b4c1f5e51663f2f14a.png?thumb=1&w=420&f=webp&q=85" alt="AIoT On Sale">
@@ -152,10 +162,10 @@
                     <p>เรารวมส่วนลดเดือนนี้ไว้ให้แล้ว</p>
                 </div>
             </div>
-
         </div>
     </section>
-    <section class="explore-section">
+
+    <section class="explore-section" id="explore-section">
         <div class="explore-header">
             <h2 class="section-title">รู้จัก Xiaomi มากขึ้น</h2>
             <div class="promo-arrows">
@@ -163,7 +173,6 @@
                 <button class="arrow-btn">❯</button>
             </div>
         </div>
-        
         <div class="explore-grid">
             <div class="explore-card">
                 <img src="https://i02.appmifile.com/545_operator_th/27/03/2026/3962ca7edef71712ef8784ea806183ad.jpg?thumb=1&w=660&f=webp&q=85" alt="Smart Home">
@@ -186,48 +195,32 @@
                     <p>Xiaomi 17 Ultra ให้คุณเก็บภาพช่วงเวลาที่สำคัญ</p>
                 </div>
             </div>
-            <div class="explore-card">
-                <img src="https://i02.appmifile.com/102_operator_th/27/03/2026/d0f3680f8a1152b26d7600de9d655ad2.jpg?thumb=1&w=660&f=webp&q=85" alt="Optics">
-                <div class="explore-info">
-                    <h3>Leica Optics เลนส์ระดับตำนาน</h3>
-                    <p>สมาร์ทโฟน ถ่ายภาพด้วยเลนส์ระดับมืออาชีพ</p>
-                </div>
-            </div>
-            <div class="explore-card">
-                <img src="https://i02.appmifile.com/242_operator_th/27/03/2026/344eb816cdde99f7036080063c30ff13.jpg?thumb=1&w=660&f=webp&q=85" alt="Optics">
-                <div class="explore-info">
-                    <h3>ประสิทธิภาพระดับโปร</h3>
-                    <p>Xiaomi Pad 8 Series มอบประสบการณ์ระดับพีซี ให้การทำงานทรงพลังได้ทุกที่</p>
-                </div>
-            </div>
         </div>
     </section>
+
     <section class="support-section">
         <h2 class="section-title">การสนับสนุนจาก Xiaomi</h2>
-        
         <div class="support-grid">
             <div class="support-item">
                 <div class="support-icon">📍</div> <h4>ค้นหาศูนย์บริการ</h4>
                 <p>ติดต่อเรา ผ่านไลฟ์แชท อีเมล หรือโทรศัพท์</p>
             </div>
             <div class="support-item">
-                <div class="support-icon">🛡️</div>
-                <h4>การรับประกัน</h4>
+                <div class="support-icon">🛡️</div> <h4>การรับประกัน</h4>
                 <p>ข้อมูลการรับประกันและนโยบายการคืนสินค้า</p>
             </div>
             <div class="support-item">
-                <div class="support-icon">📚</div>
-                <h4>คู่มือผู้ใช้</h4>
+                <div class="support-icon">📚</div> <h4>คู่มือผู้ใช้</h4>
                 <p>ค้นหาและดาวน์โหลดคู่มือผู้ใช้สำหรับสินค้า</p>
             </div>
             <div class="support-item">
-                <div class="support-icon">💬</div>
-                <h4>คำถามที่พบบ่อย</h4>
+                <div class="support-icon">💬</div> <h4>คำถามที่พบบ่อย</h4>
                 <p>ค้นหาวิธีการแก้ปัญหาและคำแนะนำ</p>
             </div>
         </div>
     </section>
-    <footer class="footer-section">
+
+    <footer class="footer-section" id="footer-section">
         <div class="footer-container">
             <div class="footer-column">
                 <h4>บริการช่วยเหลือ</h4>
@@ -264,5 +257,5 @@
             </div>
         </div>
     </footer>
-    </body>
+</body>
 </html>

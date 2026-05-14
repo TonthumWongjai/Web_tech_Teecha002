@@ -16,6 +16,7 @@ body {
     background-color: #ffffff;
     overflow-x: hidden; 
 }
+
 /*Start of NAVIGATION BAR */
 .navbar {
     display: flex;       
@@ -44,7 +45,7 @@ body {
     display: flex; 
     gap: 60px; 
     margin-left: 60px; 
-    margin-right: auto; /* ดันกลุ่มตัวหนังสือไปชิดซ้าย */
+    margin-right: auto; 
 }
 
 .nav-link a {
@@ -56,7 +57,6 @@ body {
     transition: color 0.3s ease; 
 }
 
-/* เอฟเฟกต์เส้นใต้สีส้มวิ่งออกมาตอนเอาเมาส์ชี้ */
 .nav-link a::after {
     content: ""; 
     position: absolute; 
@@ -96,7 +96,6 @@ body {
     transform: scale(1.2); 
 }
 
-
 /* ---------------------------------------------------
    2. CONTENT ON TOP (โซนแบนเนอร์ใหญ่)
 --------------------------------------------------- */
@@ -108,50 +107,44 @@ body {
     align-items: center; 
     position: relative; 
     padding: 0 100px; 
-    overflow: hidden; /* 🚨 สำคัญมาก! ตัดขอบรูปส่วนที่ล้นทิ้ง */
+    overflow: hidden; 
 }
-
-
-/* ลบ .hero-bg และ .hero-bg-mobile ของเดิมในโค้ดนายทิ้งไปเลยนะ! */
 
 .slider-track {
     display: flex;
-    width: 400%; /* เพราะมี 4 รูป เลยกว้าง 4 เท่าของหน้าจอ */
+    width: 400%; 
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    /* 🚨 เวทมนตร์ความสมูทอยู่นี่! (เลื่อนนุ่มๆ 0.7 วินาที) */
     transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1); 
     z-index: 0;
 }
 
-.slider-track img {
-    width: 25%; /* แต่ละรูปกว้าง 1 ใน 4 ของราง */
+.slider-track img, .slider-track video {
+    width: 25%; 
     height: 100%;
     object-fit: cover;
-    object-position: 82% center; /* ล็อกเป้าแท็บเล็ตให้อยู่กึ่งกลาง */
+    object-position: 82% center; 
 }
 
-/* ทำให้เส้นสีส้มค่อยๆ ยืดออกตอนถูกเลือก */
+/* 🚨 ซ่อนรูปมือถือเวลาเปิดในจอคอม */
+.img-mobile {
+    display: none !important;
+}
+
 .slider-indicators .line {
     transition: all 0.4s ease;
 }
 .slider-indicators .line.active {
-    width: 60px; /* ให้เส้นมันยาวขึ้นนิดนึงตอนโดนเลือก */
+    width: 60px; 
     background-color: #ff6900;
 }
 
-/* ทำให้ข้อความค่อยๆ เฟด */
 .hero-content {
     transition: opacity 0.4s ease, transform 0.4s ease;
 }
-.hero-bg-mobile{
-    display: none;
-}
 
-
-/* 🚨 ลอยตัวอักษรและปุ่มต่างๆ ขึ้นมาไว้บนรูป */
 .hero-content, .slider-btn, .slider-indicators {
     position: relative;
     z-index: 1; 
@@ -169,6 +162,12 @@ body {
     margin-bottom: 15px; 
 }
 
+.hero-content h1 {
+    font-size: 42px; 
+    font-weight: bold; 
+    margin-bottom: 10px;
+}
+
 .hero-content h2 { 
     font-size: 26px; 
     font-weight: 400; 
@@ -179,7 +178,7 @@ body {
     font-size: 18px; 
     line-height: 1.6; 
     margin-bottom: 30px; 
-    color: #cccccc; 
+    color: white; 
 }
 
 .price { 
@@ -188,7 +187,6 @@ body {
     margin-bottom: 30px; 
 }
 
-/* --- ปุ่มซื้อและเรียนรู้เพิ่มเติม --- */
 .hero-buttons { 
     display: flex; 
     gap: 15px; 
@@ -222,7 +220,6 @@ body {
     background-color: rgba(255, 255, 255, 0.15); 
 }
 
-/* --- ปุ่มลูกศรและแถบสถานะ (Slider) --- */
 .slider-btn { 
     position: absolute; 
     top: 50%; 
@@ -267,18 +264,6 @@ body {
     background-color: #ff6900; 
 }
 
-.slider-indicators .play-icon { 
-    color: rgba(255, 255, 255, 0.5); 
-    font-size: 12px; 
-    margin-left: 5px; 
-    cursor: pointer; 
-}
-
-.slider-indicators .play-icon:hover { 
-    color: #ffffff; 
-}
-
-
 /* ---------------------------------------------------
    3. PRODUCT SHOW (ผลิตภัณฑ์ที่ร่วมรายการ)
 --------------------------------------------------- */
@@ -301,7 +286,6 @@ body {
     color: #333333; 
 }
 
-/* --- แท็บหมวดหมู่ --- */
 .product-tabs { 
     display: flex; 
     justify-content: center; 
@@ -326,31 +310,9 @@ body {
     padding-bottom: 5px; 
 }
 
-/* --- โครงสร้างตารางสินค้า --- */
 .product-carousel-wrapper { 
     position: relative; 
 }
-
-.grid-nav-btn { 
-    position: absolute; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    width: 40px; 
-    height: 40px; 
-    border-radius: 50%; 
-    background-color: rgba(0, 0, 0, 0.05); 
-    border: none; 
-    cursor: pointer; 
-    transition: 0.3s; 
-    z-index: 10; 
-}
-
-.grid-nav-btn:hover { 
-    background-color: rgba(0, 0, 0, 0.15); 
-}
-
-.grid-nav-btn.prev { left: -30px; }
-.grid-nav-btn.next { right: -30px; }
 
 .product-grid { 
     display: grid; 
@@ -358,7 +320,6 @@ body {
     gap: 15px; 
 }
 
-/* การ์ดสินค้าไซส์ปกติ */
 .product-card { 
     background-color: #ffffff; 
     padding: 40px 20px; 
@@ -393,7 +354,6 @@ body {
     font-weight: 500; 
 }
 
-/* การ์ดสินค้าไซส์ใหญ่ (17 Ultra) */
 .product-card.featured-card { 
     grid-column: span 4; 
     display: flex; 
@@ -454,7 +414,6 @@ body {
     background-color: #000; 
 }
 
-
 /* ---------------------------------------------------
    4. BEST PROMOTION & 5. KNOW MORE
 --------------------------------------------------- */
@@ -466,7 +425,6 @@ body {
     background-color: #f5f5f5; 
 }
 
-/* 🚨 แก้ไขการจัดวางหัวข้อให้อยู่ตรงกลางเป๊ะๆ และปุ่มอยู่ขวาสุด */
 .promo-header, .explore-header { 
     position: relative; 
     display: flex; 
@@ -502,7 +460,6 @@ body {
     background-color: #d0d0d0; 
 }
 
-/* ตารางโปรโมชั่น */
 .promo-grid { 
     max-width: 1226px; 
     margin: 0 auto; 
@@ -554,7 +511,6 @@ body {
     line-height: 1.5; 
 }
 
-/* ตารางบทความ (เลื่อนไถได้) */
 .explore-grid { 
     display: flex; 
     gap: 20px; 
@@ -607,9 +563,8 @@ body {
     color: #777; 
 }
 
-
 /* ---------------------------------------------------
-   6. SUPPORT & 7. FOOTER (บริการช่วยเหลือ และ ล่างสุด)
+   6. SUPPORT & 7. FOOTER
 --------------------------------------------------- */
 .support-section { 
     padding: 60px 100px; 
@@ -715,7 +670,6 @@ body {
     background-color: #ff6900; 
 }
 
-
 /* ==============================================================
    📱 8. RESPONSIVE DESIGN (ดักเฉพาะ UI มือถือ)
 ============================================================== */
@@ -731,7 +685,6 @@ body {
         padding-right: 20px;
     }
     
-    /* ซ่อนปุ่มกดซ้ายขวาบน preview ใต้ navabar */
     .nav-link, 
     .slider-btn, 
     .grid-nav-btn, 
@@ -739,74 +692,84 @@ body {
         display: none; 
     }
 
-   /* 🚨 แบนเนอร์มือถือ */
-    .hero-section{ 
-        height: 550px; 
-        padding:0; 
+    /* 🚨 1. ปรับความสูงและให้เนื้อหาเกาะข้างบน */
+    .hero-section { 
+        height: 85vh; 
+        min-height: 550px;
+        padding: 0; 
         align-items: flex-start; 
         background-color: black; 
     }
-    
-   /* 🚨 เวทมนตร์ขั้นสุดยอด: ล็อครูปให้อยู่กึ่งกลางตลอดกาล! ไม่สไลด์หนีตามจอ! */
-    .hero-bg-mobile {
-        top: auto; 
-        bottom: 0; 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: auto;
-        position: absolute;
 
+    /* 🚨 2. สลับรูป: ซ่อนรูปแนวนอน แล้วโชว์รูปแนวตั้งแทน */
+    .slider-track img, .slider-track video {
+        object-position: center center !important; /* รูปอื่นๆ ให้อยู่ตรงกลาง */
     }
     
-    .hero-bg{
-        display: none;
+    .img-desktop {
+        display: none !important; /* ซ่อนรูปคอม */
+    }
+    
+    .img-mobile {
+        display: block !important; /* โชว์รูปมือถือ */
+        object-position: center top !important; /* 🚨 ดันขอบบนให้เห็นสีฟ้า รูปไม่เบี้ยว */
     }
 
-    /* Text Logo Button ให้อยู่ตรงกลาง */
+    /* 🚨 3. จัดกล่องข้อความให้อยู่ข้างบน + ไล่สีดำจากบนลงล่าง */
     .hero-content { 
         text-align: center; 
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start; 
         align-items: center;
-
+        width: 100%;
+        height: 100%; 
+        padding: 40px 20px 20px 20px; 
+        
+        background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 45%);
     }
 
     .hero-title-img { 
-        height: 8px; /* ย่อไซส์โลโก้ลงมา จะได้ไม่เบียดข้อความ */
-        margin: 0 auto 12px auto;
+        height: 25px; 
+        margin: 0 auto 10px auto;
         display: block;
     }
 
+    .hero-content h1 {
+        font-size: 28px;
+        margin-bottom: 5px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+    }
+
     .hero-content h2 { 
-        font-size: 22px; 
+        font-size: 18px; 
         margin-bottom: 8px; 
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
     }
     
     .hero-content p { 
-        font-size: 13px; /* ย่อข้อความลงนิดนึง */
-        margin-bottom: 20px; 
+        font-size: 13px; 
+        margin-bottom: 15px; 
+        line-height: 1.4;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
     }
 
-    #price {
-        font-size: 18px; /* ย่อราคาลงให้พอดีจอมือถือ */
-        margin-bottom: 20px;
-        
+    .price {
+        font-size: 15px; 
+        margin-bottom: 15px;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
     }
     
     .hero-buttons { 
         justify-content: center; 
-        gap: 10px; /* ลดระยะห่างระหว่างปุ่มนิดนึง */
+        gap: 10px; 
     }
 
     .btn-buy, .btn-learn {
-        padding: 10px 20px; /* ย่อปุ่มให้เล็กลง */
-        font-size: 14px;
+        padding: 8px 18px; 
+        font-size: 13px;
     }
 
-    /* แท็บสินค้า: ให้นิ้วไถซ้ายขวาได้ ไม่ต้องตัดขึ้นบรรทัดใหม่ */
     .product-tabs {
         justify-content: flex-start;
         overflow-x: auto; 
@@ -819,20 +782,17 @@ body {
         display: none; 
     } 
 
-    /* ทุบตารางลงมาเป็นแนวตั้ง 1 คอลัมน์ */
     .promo-grid, 
     .footer-container { 
         grid-template-columns: 1fr; 
         gap: 20px; 
     }
     
-    /* ไอคอนช่วยเหลือ จัดเป็น 2 คอลัมน์ */
     .support-grid { 
         grid-template-columns: repeat(2, 1fr); 
         gap: 20px; 
     }
 
-    /* ตารางสินค้า จัด 2 คอลัมน์แบบเว็บจริง */
     .product-grid { 
         grid-template-columns: repeat(2, 1fr); 
         gap: 10px; 
@@ -847,7 +807,6 @@ body {
         height: 120px; 
     }
 
-    /* การ์ดใบใหญ่ (17 Ultra) ให้จับรูปซ้อนข้อความแนวตั้ง */
     .product-card.featured-card { 
         grid-column: span 2; 
         flex-direction: column; 

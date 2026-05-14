@@ -1,38 +1,46 @@
+// 1. คลังข้อมูลตัวตนของนาย (ใส่ข้อมูลที่นายต้องการโชว์ที่นี่!)
 const sliderData = [
     {
-        titleImg: "https://i02.appmifile.com/404_operator_th/31/03/2026/cf8bf6d87cf5cfe3af351dde6c39d14a.svg",
-        subtitle: "ขีดสุดของพลังในมือคุณ",
-        desc: "นิยามใหม่ของประสิทธิภาพด้วยชิปเซ็ต Snapdragon® 8 Elite<br>หน้าจอใหญ่สะใจ ตอบโจทย์ทั้งการทำงานและความบันเทิง",
-        price: "เริ่มต้นที่ ฿11,990.00"
+        mainTitle: "Teecha002", // 🚨 เพิ่มหัวข้อใหญ่หน้า 1
+        titleImg: "", // ถ้าไม่มีรูปโลโก้ส่วนตัว ปล่อยว่างไว้ได้ครับ
+        subtitle: "Tonthum Wongjai",
+        desc: "ผ่านมือมาแล้ว 30 เครื่อง++ <br>รู้ลึกถึงข้อดี-ข้อด้อย<br> เจาะสเปกแบบคนใช้จริง ❗",
+        price: " Tiktok : Teecha002 📍"
     },
     {
-        titleImg: "https://i02.appmifile.com/404_operator_th/31/03/2026/cf8bf6d87cf5cfe3af351dde6c39d14a.svg",
-        subtitle: "หน้าจอ 144Hz ลื่นไหลทุกสัมผัส",
-        desc: "ดื่มด่ำกับสีสันสมจริงด้วยเทคโนโลยี Dolby Vision®<br>พร้อมระบบถนอมสายตาที่ผ่านการรับรองระดับโลก",
-        price: "เริ่มต้นที่ ฿13,990.00"
+        mainTitle: "Anime", // 🚨 เพิ่มหัวข้อใหญ่หน้า 2
+        titleImg: "",
+        subtitle: "Best Character i like  ",
+        desc: "Astra from Black clover <br>เพราะเวทมนต์ของฉันน่ะ คือการไม่ยอมเเพ้ ยังไงล่ะ🔥 <br> เป็น anime character คนนึงที่ไม่ว่าจะมีอุปสรรคมากมายเเค่ไหน<br>เขาก็ไม่เคยที่จะยอมเเพ้<br> เพื่อที่จะได้เป็นจักรพรรดิเวทย์มนต์👑",
+        price: "Magic❌ Sword✅"
     },
     {
-        titleImg: "https://i02.appmifile.com/418_operator_th/07/04/2026/92343c233e0dfcc4694bbf81419346b2.svg",
-        subtitle: "บันทึกทุกโมเมนต์ด้วยเลนส์ Leica",
-        desc: "สัมผัสความคมชัดระดับออปติคัลและสไตล์ภาพอันเป็นเอกลักษณ์<br>เปลี่ยนสมาร์ทโฟนของคุณให้เป็นกล้องระดับมืออาชีพ",
-        price: "เริ่มต้นที่ ฿44,990.00"
+        mainTitle: "Game 🎮", // 🚨 เพิ่มหัวข้อใหญ่หน้า 3
+        titleImg: "",
+        subtitle: "Gaming is my life🤗",
+        desc: "เวลาว่างจากการโค้ดดิ้ง <br>คือการดำดิ่งลงไปในโลกของเกมอินดี้...<br>หลงใหลในการเล่าเรื่องแนว Psychological <br>(ตกลงเราเล่นเกม หรือเกมเล่นเรากันแน่? 🔪)",
+        price: "Miside 🤫"
     },
     {
-        titleImg: "https://i02.appmifile.com/404_operator_th/31/03/2026/cf8bf6d87cf5cfe3af351dde6c39d14a.svg",
-        subtitle: "ก้าวสู่อนาคตกับ Xiaomi HyperOS",
-        desc: "ระบบปฏิบัติการที่เชื่อมต่อทุกไลฟ์สไตล์เข้าด้วยกันอย่างไร้รอยต่อ<br>ให้ทุกอุปกรณ์ในบ้านฉลาดขึ้นในพริบตา",
-        price: "เริ่มต้นที่ ฿1,290.00"
+        mainTitle: "Story + Song", // 🚨 เพิ่มหัวข้อใหญ่หน้า 4
+        titleImg: "",
+        subtitle: "Stronger Than You 🎶",
+        desc: "เสพติดการเล่าเรื่องที่ลึกซึ้งและบีบหัวใจ...<br> เบื้องหลังรอยยิ้มคือความเสียสละที่ยิ่งใหญ่<br>เรื่องราวของ Furina <br>คือนิยามของความเข้มแข็งที่แท้จริง 💙",
+        price: "Genshin Impact Lore 📖"
     }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. หาตัวละครทั้งหมด
+    // --- ดึง Elements ของ Slider ---
     const prevBtn = document.querySelector('.slider-btn.prev');
     const nextBtn = document.querySelector('.slider-btn.next');
     const indicators = document.querySelectorAll('.slider-indicators .line');
-    
     const track = document.getElementById('slider-track');
     const heroContent = document.getElementById('hero-content');
+    
+    // 🚨 ดึงแท็ก h1 (หัวข้อใหญ่) มารอไว้
+    const heroMainTitle = document.querySelector('.hero-content h1'); 
+    
     const heroTitleImg = document.querySelector('.hero-title-img');
     const heroSubtitle = document.querySelector('.hero-content h2');
     const heroDesc = document.querySelector('.hero-content p');
@@ -41,25 +49,36 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     let slideInterval;
 
-    // 2. ฟังก์ชันหลัก เลื่อนราง + อัปเดตข้อมูล
+    // --- ฟังก์ชันอัปเดตสไลด์ ---
     function updateSlider(newIndex) {
-        // อัปเดตเส้นสีส้ม
+        // อัปเดตขีดสถานะ
         indicators.forEach(line => line.classList.remove('active'));
         if(indicators[newIndex]) indicators[newIndex].classList.add('active');
         
-        // 🚨 สั่งเลื่อนราง! (เลื่อนทีละ 25% เพราะมี 4 รูป)
+        // เลื่อนรางรูปภาพ
         if(track) {
             track.style.transform = `translateX(-${newIndex * 25}%)`;
         }
         
-        // 🚨 อัปเดตข้อความแบบสมูท (เฟดออก -> เปลี่ยนคำ -> เฟดเข้า)
+        // อัปเดตข้อความจาก JS sliderData
         const data = sliderData[newIndex];
         if(data && heroContent) {
             heroContent.style.opacity = '0';
             heroContent.style.transform = 'translateY(15px)';
 
             setTimeout(() => {
-                if(heroTitleImg) heroTitleImg.src = data.titleImg;
+                // 🚨 สั่งอัปเดตข้อความ h1 ให้ตรงกับ mainTitle
+                if(heroMainTitle) heroMainTitle.innerText = data.mainTitle;
+
+                // ถ้าใน JS ไม่มีรูป titleImg ให้ซ่อนตัวแปรนี้ไป
+                if(heroTitleImg) {
+                    if(data.titleImg) {
+                        heroTitleImg.src = data.titleImg;
+                        heroTitleImg.style.display = "block";
+                    } else {
+                        heroTitleImg.style.display = "none";
+                    }
+                }
                 if(heroSubtitle) heroSubtitle.innerText = data.subtitle;
                 if(heroDesc) heroDesc.innerHTML = data.desc;
                 if(heroPrice) heroPrice.innerText = data.price;
@@ -68,16 +87,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 heroContent.style.transform = 'translateY(0)';
             }, 300); 
         }
-
         currentIndex = newIndex;
     }
 
-    // 3. ระบบ Auto-play (ไหลเองทุก 5 วิ)
+    // 🚨 หัวใจสำคัญ: สั่งให้มันรันหน้าแรก (Index 0) ทันทีที่โหลดเสร็จ!
+    // ข้อความใน HTML จะถูกแทนที่ด้วยข้อมูลใน JS ทันที
+    updateSlider(0);
+
+    // --- ระบบ Auto-play ---
     function startAutoPlay() {
         slideInterval = setInterval(() => {
             let index = (currentIndex + 1 >= sliderData.length) ? 0 : currentIndex + 1;
             updateSlider(index);
-        }, 5000);
+        }, 7000);
     }
 
     function resetTimer() {
@@ -85,10 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoPlay();
     }
 
-    // สั่งเริ่มทำงาน
     startAutoPlay();
 
-    // 4. สั่งงานปุ่มกด
+    // --- Event Listeners ปุ่มกดต่างๆ ---
     if(nextBtn) {
         nextBtn.addEventListener('click', () => {
             let index = (currentIndex + 1 >= sliderData.length) ? 0 : currentIndex + 1;
@@ -111,41 +132,28 @@ document.addEventListener('DOMContentLoaded', () => {
             resetTimer();
         });
     });
-});
-// ==========================================
-    // 🛒 ระบบ Product Tabs (กรองสินค้า)
+
     // ==========================================
-    
-    // 1. ดึงปุ่มและกล่องเนื้อหาทั้งหมดมา
+    // 🛒 ระบบ Product Tabs (กรองสินค้า) - ย้ายมาไว้ข้างในนี้เพื่อความปลอดภัย
+    // ==========================================
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
 
-    // 2. สั่งงานปุ่มแต่ละปุ่ม
     tabBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
-            e.preventDefault(); // ป้องกันไม่ให้หน้าเว็บกระตุกเวลาคลิก <a>
-
-            // 2.1 ลบสีส้ม (active) ออกจากทุกปุ่มก่อน
+            e.preventDefault();
             tabBtns.forEach(t => t.classList.remove('active'));
-            
-            // 2.2 ซ่อนกระดานสินค้าทุกอันให้หมด
             tabContents.forEach(content => {
                 content.style.display = 'none';
-                content.style.opacity = '0'; // ใส่จางๆ ไว้รอ
+                content.style.opacity = '0';
             });
 
-            // 2.3 เติมสีส้มให้ปุ่มที่เราเพิ่งคลิก
             btn.classList.add('active');
-
-            // 2.4 หาว่าปุ่มนี้สั่งให้เปิดกระดานไหน (ดึงค่าจาก data-tab)
             const targetId = btn.getAttribute('data-tab');
             const targetGrid = document.getElementById(`tab-${targetId}`);
 
-            // 2.5 สั่งเปิดกระดานนั้น
             if (targetGrid) {
-                targetGrid.style.display = 'grid'; // โชว์กลับมาเป็นตาราง (grid)
-                
-                // ค่อยๆ เฟดภาพเข้ามาให้นุ่มนวล
+                targetGrid.style.display = 'grid';
                 setTimeout(() => {
                     targetGrid.style.transition = 'opacity 0.4s ease';
                     targetGrid.style.opacity = '1';
@@ -153,3 +161,27 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+});
+// ==========================================
+    // 📱 ระบบเปลี่ยนรูปภาพหน้าแรกอัตโนมัติเมื่อเป็นจอมือถือ
+    // ==========================================
+    const slide1 = document.getElementById('slide-img-1');
+    
+    // สร้างฟังก์ชันเช็คขนาดจอ
+    function checkScreenSize() {
+        if (window.innerWidth <= 768) {
+            // ถ้าจอเล็กกว่าหรือเท่ากับ 768px (มือถือ) ให้ใช้รูปแนวตั้ง
+            slide1.src = "./Picture/Moblieอ.jpg";
+        } else {
+            // ถ้าจอคอมปกติ ให้ใช้รูปแนวนอน
+            slide1.src = "./Picture/Phone04.png";
+        }
+    }
+
+    // 1. สั่งให้ทำงานทันทีตอนโหลดเว็บครั้งแรก
+    if (slide1) {
+        checkScreenSize();
+    }
+
+    // 2. สั่งให้คอยจับตาดูเผื่อมีการยืด-หดหน้าต่างเบราว์เซอร์
+    window.addEventListener('resize', checkScreenSize);
