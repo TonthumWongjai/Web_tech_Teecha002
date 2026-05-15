@@ -1,32 +1,36 @@
 // 1. คลังข้อมูลตัวตนของนาย (ใส่ข้อมูลที่นายต้องการโชว์ที่นี่!)
 const sliderData = [
     {
-        mainTitle: "Teecha002", // 🚨 เพิ่มหัวข้อใหญ่หน้า 1
-        titleImg: "", // ถ้าไม่มีรูปโลโก้ส่วนตัว ปล่อยว่างไว้ได้ครับ
+        mainTitle: "Teecha002",
+        titleImg: "", 
         subtitle: "Tonthum Wongjai",
         desc: "ผ่านมือมาแล้ว 30 เครื่อง++ <br>รู้ลึกถึงข้อดี-ข้อด้อย<br> เจาะสเปกแบบคนใช้จริง ❗",
-        price: " Tiktok : Teecha002 📍"
+        price: " Tiktok : Teecha002 📍",
+        link: "https://www.tiktok.com/@teecha_002" // 🚨 ลิ้งก์ไป TikTok
     },
     {
-        mainTitle: "Anime", // 🚨 เพิ่มหัวข้อใหญ่หน้า 2
+        mainTitle: "Anime", 
         titleImg: "",
         subtitle: "Best Character i like  ",
         desc: "Astra from Black clover <br>เพราะเวทมนต์ของฉันน่ะ คือการไม่ยอมเเพ้ ยังไงล่ะ🔥 <br> เป็น anime character คนนึงที่ไม่ว่าจะมีอุปสรรคมากมายเเค่ไหน<br>เขาก็ไม่เคยที่จะยอมเเพ้<br> เพื่อที่จะได้เป็นจักรพรรดิเวทย์มนต์👑",
-        price: "Magic❌ Sword✅"
+        price: "Magic❌ Sword✅",
+        link: "https://blackclover.fandom.com/wiki/Asta" // 🚨 ลิ้งก์ไปประวัติ Asta
     },
     {
-        mainTitle: "Game 🎮", // 🚨 เพิ่มหัวข้อใหญ่หน้า 3
+        mainTitle: "Game 🎮", 
         titleImg: "",
         subtitle: "Gaming is my life🤗",
         desc: "เวลาว่างจากการโค้ดดิ้ง <br>คือการดำดิ่งลงไปในโลกของเกมอินดี้...<br>หลงใหลในการเล่าเรื่องแนว Psychological <br>(ตกลงเราเล่นเกม หรือเกมเล่นเรากันแน่? 🔪)",
-        price: "Miside 🤫"
+        price: "Miside 🤫",
+        link: "https://store.steampowered.com/app/2527500/MiSide/" // 🚨 ลิ้งก์ไปเกม Steam
     },
     {
-        mainTitle: "Story + Song", // 🚨 เพิ่มหัวข้อใหญ่หน้า 4
+        mainTitle: "Story + Song", 
         titleImg: "",
         subtitle: "Stronger Than You 🎶",
         desc: "เสพติดการเล่าเรื่องที่ลึกซึ้งและบีบหัวใจ...<br> เบื้องหลังรอยยิ้มคือความเสียสละที่ยิ่งใหญ่<br>เรื่องราวของ Furina <br>คือนิยามของความเข้มแข็งที่แท้จริง 💙",
-        price: "Genshin Impact Lore 📖"
+        price: "Genshin Impact Lore 📖",
+        link: "https://genshin-impact.fandom.com/wiki/Furina/Storyline" // 🚨 ลิ้งก์ไปประวัติ Furina
     }
 ];
 
@@ -38,13 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('slider-track');
     const heroContent = document.getElementById('hero-content');
     
-    // 🚨 ดึงแท็ก h1 (หัวข้อใหญ่) มารอไว้
     const heroMainTitle = document.querySelector('.hero-content h1'); 
-    
     const heroTitleImg = document.querySelector('.hero-title-img');
     const heroSubtitle = document.querySelector('.hero-content h2');
     const heroDesc = document.querySelector('.hero-content p');
     const heroPrice = document.querySelector('.price');
+    
+    // 🚨 ดึงปุ่ม "เรียนรู้เพิ่มเติม" มารอไว้เปลี่ยนลิ้งก์
+    const heroLearnBtn = document.getElementById('hero-learn-btn'); 
 
     let currentIndex = 0;
     let slideInterval;
@@ -67,10 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
             heroContent.style.transform = 'translateY(15px)';
 
             setTimeout(() => {
-                // 🚨 สั่งอัปเดตข้อความ h1 ให้ตรงกับ mainTitle
                 if(heroMainTitle) heroMainTitle.innerText = data.mainTitle;
 
-                // ถ้าใน JS ไม่มีรูป titleImg ให้ซ่อนตัวแปรนี้ไป
                 if(heroTitleImg) {
                     if(data.titleImg) {
                         heroTitleImg.src = data.titleImg;
@@ -83,6 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if(heroDesc) heroDesc.innerHTML = data.desc;
                 if(heroPrice) heroPrice.innerText = data.price;
                 
+                // 🚨 เปลี่ยนลิ้งก์ href ของปุ่มตามข้อมูลใน JS
+                if(heroLearnBtn && data.link) heroLearnBtn.href = data.link;
+
                 heroContent.style.opacity = '1';
                 heroContent.style.transform = 'translateY(0)';
             }, 300); 
@@ -90,8 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentIndex = newIndex;
     }
 
-    // 🚨 หัวใจสำคัญ: สั่งให้มันรันหน้าแรก (Index 0) ทันทีที่โหลดเสร็จ!
-    // ข้อความใน HTML จะถูกแทนที่ด้วยข้อมูลใน JS ทันที
+    // สั่งให้มันรันหน้าแรก (Index 0) ทันทีที่โหลดเสร็จ
     updateSlider(0);
 
     // --- ระบบ Auto-play ---
@@ -134,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================
-    // 🛒 ระบบ Product Tabs (กรองสินค้า) - ย้ายมาไว้ข้างในนี้เพื่อความปลอดภัย
+    // 🛒 ระบบ Product Tabs (กรองสินค้า)
     // ==========================================
     const tabBtns = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
@@ -162,26 +167,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
-// ==========================================
-    // 📱 ระบบเปลี่ยนรูปภาพหน้าแรกอัตโนมัติเมื่อเป็นจอมือถือ
-    // ==========================================
-    const slide1 = document.getElementById('slide-img-1');
-    
-    // สร้างฟังก์ชันเช็คขนาดจอ
-    function checkScreenSize() {
-        if (window.innerWidth <= 768) {
-            // ถ้าจอเล็กกว่าหรือเท่ากับ 768px (มือถือ) ให้ใช้รูปแนวตั้ง
-            slide1.src = "./Picture/Moblieอ.jpg";
-        } else {
-            // ถ้าจอคอมปกติ ให้ใช้รูปแนวนอน
-            slide1.src = "./Picture/Phone04.png";
-        }
-    }
-
-    // 1. สั่งให้ทำงานทันทีตอนโหลดเว็บครั้งแรก
-    if (slide1) {
-        checkScreenSize();
-    }
-
-    // 2. สั่งให้คอยจับตาดูเผื่อมีการยืด-หดหน้าต่างเบราว์เซอร์
-    window.addEventListener('resize', checkScreenSize);
