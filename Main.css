@@ -1,84 +1,85 @@
-/* Set default all */
+/*----- Set default ของ ทั้งหมด ----- */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* ให้กล่องขยายเข้าข้างใน จะได้ไม่ทำให้ขนาดกล่องใหญ่ขึ้น */
     font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-/* 🚨 1. แยก html ออกมา แล้วใส่ความสมูทเข้าไป */
 html {
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth; /*เวลาคลิกลิงก์แล้วมันเลื่อนลงมาสมูทๆ*/
 }
 
-/* 🚨 2. ให้ body จัดการเรื่องพื้นหลังและกันจอทะลุ (ห้ามใส่ overflow ที่ html) */
 body {
-    background-color: #ffffff;
-    overflow-x: hidden; 
+    background-color: #ffffff; /*Set Default ของพื้นหลังทั้งหมดให้เป็นสีขาว*/
+    overflow-x: hidden; /*ล็อกไว้ไม่ให้หน้าจอด้านข้างมันเกิน*/
 }
+/* ----- End of Set Default -----*/
 
-/*Start of NAVIGATION BAR */
+
+/* ----- NAVBAR -----*/
 .navbar {
     display: flex;       
-    justify-content: space-between; 
-    align-items: center; 
+    justify-content: space-between; /*สร้างระยะห่างระหว่างcontentซ้าย,กลาง,ขวาเท่าๆกัน */
+    align-items: center; /* จัดให้อยู่กึ่งกลางในแนวตั้ง */
     padding: 15px 30px; 
     background-color: #ffffff; 
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08); 
-    position: sticky;    
-    top: 0;              
-    z-index: 2000;       
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08); /* ใส่เงาบางๆของ Navbar*/
+    position: sticky; /* ล็อกให้ติดขอบจอบนตลอดเวลา */   
+    top: 0;    
+    z-index: 2000; /* ดันให้อยู่บนสุดจะได้ไม่โดนรูปอื่นทับ */      
     width: 100%;
 }
 
 .logo a { 
     display: flex; 
-    text-decoration: none; 
+    text-decoration: none; /* เอาขีดเส้นใต้ของลิงก์ออก */
 }
 
 .logo img { 
-    border-radius: 12px; 
+    border-radius: 12px; /* ทำขอบโลโก้ให้โค้งนิดๆ */
 }
 
-/* --- ลิงก์ข้อความตรงกลาง --- */
+/* --- Link กดตรง Navbar (About me , reccommend ,...)--- */
 .nav-link {
     display: flex; 
-    gap: 60px; 
+    gap: 60px; /* ระยะห่างระหว่าง เมนู Navbar */
     margin-left: 60px; 
-    margin-right: auto; 
+    margin-right: auto; /* ดันไปทางซ้ายให้อยู่ฝั่งโลโก้ */
 }
 
 .nav-link a {
-    text-decoration: none;  
+    text-decoration: none;  /* เอาขีดเส้นใต้ของลิงก์ออก */
     color: #333333; 
     font-size: 16px; 
-    position: relative;  
+    position: relative; /* ทำให้มันไม่ออกนอกกรอบของลิงค์นั้นๆ */ 
     padding-bottom: 5px; 
-    transition: color 0.3s ease; 
+    transition: color 0.3s ease; /* ทำให้เปลี่ยนสีตอนเมาส์ชี้สมูทขึ้น */
 }
 
+/* สร้างเส้นใต้สีส้ม ของ content Navbar */
 .nav-link a::after {
-    content: ""; 
-    position: absolute; 
-    left: 0; 
-    bottom: -16px; 
-    width: 100%; 
-    height: 3px; 
+    content: ""; /*สร้างกล่องว่างๆเพื่อที่จะทำ */
+    position: absolute; /*ประมาณ set ให่มันลอยได่บน Navbar เเบบอิสระเเต่ไม่เลยกรอบ */
+    left: 0; /*ให้มันจากขอบซ้ายพอดีเป๊ะ*/
+    bottom: -16px; /*ทำให้เส้นนี้ต่ำกว่ากล่อง 16px */
+    width: 100%; /*ทำให้เส้นยาวเท่า content บน Navbar */
+    height: 3px; /*ความสูงของเส้นหรือความหนานั่นเเหละ */
     background-color: #ff6900; 
-    transform: scaleX(0); 
-    transform-origin: left; 
-    transition: transform 0.3s ease; 
+    transform: scaleX(0); /* หดขีดเส้นใต้เเกนxที่0จะได้ไม่เห็นเส้นก่อน Hover */
+    transform-origin: left; /* ให้เส้นเริ่มวิ่งจากฝั่งซ้าย */
+    transition: transform 0.3s ease; /* ทำให้ตอนขยายเส้นสมูทใช้เวลา0.3วินาที */
 }
 
+/* พอเอาเมาส์ชี้ ตัวหนังสือเปลี่ยนสี + เส้นสีส้มวิ่งออกมาจากซ้ายไปขวา */
 .nav-link a:hover { 
     color: #ff6900; 
 }
-
 .nav-link a:hover::after { 
-    transform: scaleX(1); 
+    transform: scaleX(1); /* ขยายสเกลเส้นแนวนอนให้กลับมาเต็ม 100% */
 }
 
-/* --- ไอคอนขวาสุด --- */
+/* --- ไอคอนขวาสุด (รูปคน) --- */
 .nav-icons {
     display: flex; 
     gap: 20px; 
@@ -93,67 +94,70 @@ body {
 }
 
 .nav-icons a:hover { 
-    transform: scale(1.2); 
+    transform: scale(1.2); /* เอาเมาส์ชี้แล้วไอคอนขยาย 1.2 เท่า */
 }
+/* ----- End of Navbar -----*/
 
-/* ---------------------------------------------------
-   2. CONTENT ON TOP (โซนแบนเนอร์ใหญ่)
---------------------------------------------------- */
+
+/* ----- CONTENT ON TOP (โซนแบนเนอร์ใหญ่) -----*/
 .hero-section {
     width: 100%; 
-    height: 600px; 
-    background-color: #080808; 
+    height: 600px; /* เซ็ตความสูงของกล่องแบนเนอร์ */
+    background-color: #080808; /* สีพื้นหลังเผื่อรูปโหลดไม่ขึ้น */
     display: flex; 
-    align-items: center; 
-    position: relative; 
+    align-items: center; /* จัดคอนเทนต์ให้อยู่ตรงกลางแนวตั้ง */
+    position: relative; /* สร้างกรอบเเม่ให้รูปสไลด์และปุ่มต่างๆ ลอยอยู่ข้างในโดยไม่ทะลุออกไป */
     padding: 0 100px; 
-    overflow: hidden; 
+    overflow: hidden; /* ปิด/ซ่อนรูปส่วนที่ล้นหน้าจอออกไป */
 }
 
+/* รางสไลด์ยาวๆ ที่เอารูปมาต่อกันซ้ายไปขวา */
 .slider-track {
     display: flex;
-    width: 400%; 
+    width: 400%; /* มี 4 รูปเลยตั้งความกว้างเป็น 400% ของหน้าจอ */
     height: 100%;
-    position: absolute;
+    position: absolute; /* ลอยเป็นพื้นหลังอิสระ ทับกันไม่ได้ */
     top: 0;
     left: 0;
-    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1); 
-    z-index: 0;
+    transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1); /* เอฟเฟกต์เลื่อนรูปสมูทๆ */
+    z-index: 0; /* ให้อยู่เลเยอร์ล่างสุด */
 }
 
 .slider-track img, .slider-track video {
-    width: 25%; 
+    width: 25%; /* แบ่งพื้นที่ให้รูปละ 1 หน้าจอ (25% จาก 400%) */
     height: 100%;
-    object-fit: cover;
-    object-position: 82% center; 
+    object-fit: cover; /* ทำให้รูปเต็มพื้นที่ไม่บีบไม่เบี้ยว */
+    object-position: 82% center; /* ขยับรูปไปทางขวานิดๆ จะได้ไม่โดนตัวหนังสือบังหน้าตัวละคร */
 }
 
-/* 🚨 ซ่อนรูปมือถือเวลาเปิดในจอคอม */
+/* ซ่อนรูปแบบเว็ปของมือถือเวลาเปิดในจอคอม */
 .img-mobile {
     display: none !important;
 }
 
+/* ขีดสถานะด้านล่าง */
 .slider-indicators .line {
-    transition: all 0.4s ease;
+    transition: all 0.4s ease; /* ขีดสถานะเปลี่ยนสีสมูทๆ */
 }
 .slider-indicators .line.active {
-    width: 60px; 
-    background-color: #ff6900;
+    width: 60px; /* ขีดที่กำลังโชว์อยู่ให้ยาวขึ้น */
+    background-color: #ff6900; /* เปลี่ยนขีดเป็นสีส้ม */
 }
 
+/* เนื้อหาตัวหนังสือบนแบนเนอร์ */
 .hero-content {
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease; /* เอฟเฟกต์เฟดข้อความเข้าออกเวลามันเปลี่ยน */
 }
 
 .hero-content, .slider-btn, .slider-indicators {
-    position: relative;
-    z-index: 1; 
+    position: relative; /* ดึงให้ของพวกนี้เตรียมพร้อมที่จะลอยขึ้นมา */
+    z-index: 1; /* ดันให้อยู่เลเยอร์บนรูปภาพที่เป็น 0 */
 }
 
 .hero-content {
     color: #ffffff; 
-    max-width: 1226px; 
-    margin: 0 auto; 
+    max-width: 1226px; /* ล็อกความกว้างสุดไว้จะได้ไม่กว้างเกิน */
+    margin: 0 auto; /* จัดให้อยู่กึ่งกลางหน้าจอ */
     width: 100%;
 }
 
@@ -176,80 +180,89 @@ body {
 
 .hero-content p { 
     font-size: 18px; 
-    line-height: 1.6; 
+    line-height: 1.6; /*ทำให่ระยะห่างใต้ paragraphในส่วนของ aboutme สูงขึ้น */
     margin-bottom: 30px; 
     color: white; 
 }
 
-.price { 
+.hero-content .price { 
     font-size: 22px; 
     font-weight: bold; 
     margin-bottom: 30px; 
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9); /* ใส่เงาดำให้ตัวหนังสืออ่านง่ายเวลาทับรูปสว่างๆ */
 }
 
+/* โซนปุ่มกด "เรียนรู้เพิ่มเติม" */
 .hero-buttons { 
     display: flex; 
     gap: 15px; 
 }
 
+.btn-buy, .btn-learn { 
+    padding: 12px 30px; 
+    text-decoration: none; /* ลบเส้นใต้ลิงก์ */
+    font-weight: bold; 
+    border-radius: 10px; /* ทำให้ขอบปุ่มมนๆ */
+    transition: 0.3s; 
+}
+
 .btn-buy { 
     background-color: #ffffff; 
     color: #000000; 
-    padding: 12px 30px; 
-    text-decoration: none; 
-    font-weight: bold; 
-    border-radius: 10px; 
-    transition: 0.3s; 
 }
 
 .btn-buy:hover { 
-    background-color: #e6e6e6; 
+    background-color: #e6e6e6; /* ชี้แล้วปุ่มสีหม่นลงนิดนึง */
 }
 
 .btn-learn { 
-    background-color: transparent; 
+    background-color: transparent; /* ทำให้ปุ่มโปร่งใส กลมกลืนกับรูป */
     color: #ffffff; 
-    padding: 12px 30px; 
-    text-decoration: none; 
-    font-weight: bold; 
-    border-radius: 10px; 
-    transition: 0.3s; 
 }
 
 .btn-learn:hover { 
-    background-color: rgba(255, 255, 255, 0.15); 
+    background-color: rgba(255, 255, 255, 0.15); /* ชี้แล้วปุ่มสว่างขึ้นนิดนึง */
 }
 
+/* ปุ่มลูกศรซ้าย ขวาเลื่อนสไลด์แบนเนอร์ */
 .slider-btn { 
-    position: absolute; 
-    top: 50%; 
-    transform: translateY(-50%); 
+    position: absolute; /* ลอยอิสระ ซ้าย-ขวา ขอบจอ */
+    top: 50%; /* ดันลงมาครึ่งจอ */
+    transform: translateY(-50%); /* ดึงกลับขึ้นมาให้อยู่กึ่งกลางเป๊ะๆ ในแนวตั้ง */
     width: 40px; 
     height: 40px; 
-    border-radius: 50%; 
+    border-radius: 50%; /* ทำให้ปุ่มกลายเป็นวงกลม */
     background-color: rgba(255, 255, 255, 0.2); 
     color: #ffffff; 
     border: none; 
     font-size: 16px; 
-    cursor: pointer; 
+    cursor: pointer; /* ให้เมาส์เปลี่ยนเป็นรูปนิ้วชี้ตอนเอาไปวาง */
     transition: 0.3s; 
+    z-index: 1;
 }
 
 .slider-btn:hover { 
     background-color: rgba(255, 255, 255, 0.5); 
 }
 
-.slider-btn.prev { left: 20px; }
-.slider-btn.next { right: 20px; }
+.slider-btn.prev { 
+    left: 20px; /* แปะปุ่มไว้ขอบซ้าย */
+}
 
+.slider-btn.next { 
+    right: 20px; /* แปะปุ่มไว้ขอบขวา */
+}
+
+/* ขีดสถานะข้างล่างสุด (บอกว่าอยู่รูปไหน) */
 .slider-indicators { 
     position: absolute; 
-    bottom: 25px; 
-    left: 50%; 
-    transform: translateX(-50%); 
+    bottom: 25px; /* ให้มันลอยอยู่ข้างล่างสุด ห่างจากขอบ 25px */
+    left: 50%; /* ดันไปตรงกลาง */
+    transform: translateX(-50%); /* จัดให้มันอยู่กึ่งกลางเเนวนอนพอดีเป๊ะ */
     display: flex; 
     align-items: center; 
     gap: 10px; 
+    z-index: 1;
 }
 
 .slider-indicators .line { 
@@ -258,23 +271,25 @@ body {
     background-color: rgba(255, 255, 255, 0.3); 
     border-radius: 2px; 
     cursor: pointer; 
+    transition: all 0.4s ease;
 }
 
 .slider-indicators .line.active { 
+    width: 60px; /* ขีดที่ active อยู่ให้ยาวขึ้น */
     background-color: #ff6900; 
 }
+/* ----- End of Hero Section -----*/
 
-/* ---------------------------------------------------
-   3. PRODUCT SHOW (ผลิตภัณฑ์ที่ร่วมรายการ)
---------------------------------------------------- */
+
+/* ----- PRODUCT SECTION (โซน My Recommendations ป้ายยาสินค้า) -----*/
 .product-section { 
     padding: 50px 100px; 
-    background-color: #f5f5f5; 
+    background-color: #f5f5f5; /* พื้นหลังสีเทาอ่อน */
 }
 
 .product-tabs, .section-title, .product-carousel-wrapper { 
-    max-width: 1226px; 
-    margin: 0 auto; 
+    max-width: 1226px; /* บังคับความกว้างสูงสุดให้เท่ากับคอนเทนต์หน้าเว็บ */
+    margin: 0 auto; /* จัดให้อยู่ตรงกลางจอ */
     width: 100%; 
 }
 
@@ -286,9 +301,10 @@ body {
     color: #333333; 
 }
 
+/* โซนปุ่มกดเลือกแท็บ (มือถือ, อนิเมะ, ตัวละคร) */
 .product-tabs { 
     display: flex; 
-    justify-content: center; 
+    justify-content: center; /* จัดปุ่มแท็บให้อยู่กึ่งกลาง */
     gap: 40px; 
     margin-bottom: 40px; 
 }
@@ -304,6 +320,7 @@ body {
     color: #ff6900; 
 }
 
+/* ขีดเส้นใต้แท็บที่ถูกคลิกอยู่ (ให้รู้ว่ากำลังดูหน้านี้) */
 .product-tabs a.active { 
     color: #ff6900; 
     border-bottom: 2px solid #ff6900; 
@@ -311,34 +328,44 @@ body {
 }
 
 .product-carousel-wrapper { 
-    position: relative; 
+    position: relative; /* set เป็นกรอบเเม่กันของข้างในทะลุ */
 }
 
+/* จัดเลย์เอาต์การ์ดเป็นระบบตาราง (Grid Layout) */
 .product-grid { 
-    display: grid; 
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 15px; 
+    display: grid; /* ใช้ระบบตาราง */
+    grid-template-columns: repeat(4, 1fr); /* เเบ่งเป็น 4 คอลัมน์กว้างเท่าๆกัน */
+    gap: 15px; /* เว้นระยะห่างระหว่างการ์ด 15px */
 }
 
+/* กรอบของการ์ดสินค้าแต่ละใบ */
 .product-card { 
     background-color: #ffffff; 
     padding: 40px 20px; 
     text-align: center; 
     border-radius: 4px; 
     cursor: pointer; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    overflow: hidden; /* กันรูปตอนเมาส์ชี้ซูม ไม่ให้ล้นทะลุกรอบออกไป */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* ทำให้ตอนชี้เมาส์เเล้วสมูท */
 }
 
+/* เอาเมาส์ชี้ปุ๊บ การ์ดเด้งลอยขึ้น 5px พร้อมมีเงาโผล่ */
 .product-card:hover { 
-    transform: translateY(-5px); 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+    transform: translateY(-5px); /* พอเอาเมาส์ชี้ปุ๊บให้การ์ดเด้งลอยขึ้น 5px */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* ใส่เงาให้ดูมีมิติ */
 }
 
 .product-card img { 
     width: 160px; 
     height: 160px; 
-    object-fit: contain; 
+    object-fit: contain; /* โชว์รูปให้เห็นทั้งหมดโดยไม่ตัดขอบทิ้ง */
     margin-bottom: 20px; 
+    transition: transform 0.3s ease; /* เตรียมเอฟเฟกต์ซูมเข้าให้สมูท */
+}
+
+/* เอาเมาส์ชี้ปุ๊บ ให้รูปข้างในขยายใหญ่ขึ้น (ซูมเข้า) 1.1 เท่า */
+.product-card:hover img {
+    transform: scale(1.1); /* พอเอาเมาส์ชี้ปุ๊บ ให้รูปขยายใหญ่ขึ้น 1.1 เท่า */
 }
 
 .product-card h3 { 
@@ -354,16 +381,18 @@ body {
     font-weight: 500; 
 }
 
+/* การ์ดใบใหญ่สุด (กินพื้นที่ 4 ช่องเวลาเป็นจอเล็ก หรือลากยาวจอใหญ่) */
 .product-card.featured-card { 
-    grid-column: span 4; 
+    grid-column: span 4; /* ลากยาวให้กินพื้นที่ไปเลย 4 คอลัมน์ */
     display: flex; 
-    align-items: stretch; 
+    align-items: stretch; /* ให้ของข้างในยืดเต็มความสูงกล่องพอดี */
     padding: 0; 
     min-height: 420px; 
 }
 
 .featured-img-container { 
-    width: 50%; 
+    width: 50%; /* เเบ่งให้รูปกินพื้นที่ไปครึ่งนึง */
+    overflow: hidden;
 }
 
 .featured-img-container img { 
@@ -374,7 +403,7 @@ body {
 }
 
 .featured-info { 
-    width: 50%; 
+    width: 50%; /* ให้ข้อมูลข้อความกินพื้นที่อีกครึ่งนึง */
     display: flex; 
     flex-direction: column; 
     align-items: center; 
@@ -400,11 +429,12 @@ body {
     margin-bottom: 25px; 
 }
 
+/* ปุ่มสีดำในใบใหญ่ */
 .btn-buy-dark { 
     background-color: #222; 
     color: #fff; 
     padding: 12px 35px; 
-    border-radius: 25px; 
+    border-radius: 25px; /* ทำให้ขอบปุ่มโค้งมนเยอะๆ */
     text-decoration: none; 
     font-weight: bold; 
     transition: 0.3s; 
@@ -413,10 +443,10 @@ body {
 .btn-buy-dark:hover { 
     background-color: #000; 
 }
+/* ----- End of Product Section -----*/
 
-/* ---------------------------------------------------
-   4. BEST PROMOTION & 5. KNOW MORE
---------------------------------------------------- */
+
+/* ----- PROMO & EXPLORE SECTION (โซน OS ที่ชอบ & รู้จัก Teecha) -----*/
 .promo-section, .explore-section { 
     padding: 50px 100px; 
 }
@@ -439,9 +469,10 @@ body {
     margin: 0; 
 }
 
+/* กรอบปุ่มลูกศร กดเลื่อนการ์ดโปรโมชั่น */
 .promo-arrows { 
-    position: absolute; 
-    right: 0; 
+    position: absolute; /* ลอยอิสระไม่บังคับกรอบ */
+    right: 0; /* ดันปุ่มลูกศรไปอยู่ขอบขวาสุด */
     display: flex; 
     gap: 10px; 
 }
@@ -460,12 +491,20 @@ body {
     background-color: #d0d0d0; 
 }
 
+/* ทำให้การ์ด OS เรียงกันแล้วสามารถปัดซ้าย-ขวาได้ (แบบ Carousel) */
 .promo-grid { 
     max-width: 1226px; 
     margin: 0 auto; 
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
+    display: flex; 
     gap: 20px; 
+    overflow-x: auto; /* ถ้าของล้นก็ให้โชว์เเถบเลื่อนเเนวนอนได้ */
+    scroll-behavior: smooth; /* เวลาเลื่อนให้มันสมูทๆไม่กระตุก */
+    padding-bottom: 10px;
+}
+
+/* ซ่อนแถบสกอร์บาร์ด้านล่างเพื่อความมินิมอล */
+.promo-grid::-webkit-scrollbar { 
+    display: none; /* ซ่อนเเถบเลื่อนด้านล่างไม่ให้รกตา */
 }
 
 .promo-card { 
@@ -475,8 +514,10 @@ body {
     text-align: center; 
     cursor: pointer; 
     transition: 0.3s; 
+    flex: 0 0 calc(33.33% - 14px); /* บังคับให้หน้าจอคอมโชว์ทีละ 3 การ์ดเป๊ะๆ */
 }
 
+/* ตอนเอาเมาส์ชี้ ให้การ์ดเด้งลอยขึ้นมาและมีเงา */
 .promo-card:hover { 
     transform: translateY(-5px); 
     box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
@@ -486,12 +527,19 @@ body {
     width: 100%; 
     height: 280px; 
     background-color: #f5f5f5; 
+    overflow: hidden; /* กันรูปตอนซูมทะลุกรอบ */
 }
 
 .promo-img-box img { 
     width: 100%; 
     height: 100%; 
     object-fit: cover; 
+    transition: transform 0.3s ease;
+}
+
+/* ซูมรูปข้างในการ์ด OS เวลาชี้ */
+.promo-card:hover .promo-img-box img {
+    transform: scale(1.1); 
 }
 
 .promo-info { 
@@ -511,13 +559,14 @@ body {
     line-height: 1.5; 
 }
 
+/* --- โซน Explore (รู้จัก Teecha มากขึ้น) --- */
 .explore-grid { 
     display: flex; 
     gap: 20px; 
     max-width: 1226px; 
     margin: 0 auto; 
-    overflow-x: auto; 
-    scroll-snap-type: x mandatory; 
+    overflow-x: auto; /* ทำให้ไถปัดข้างได้ */
+    scroll-snap-type: x mandatory; /* ปัดเเล้วให้การ์ดล็อกเข้าที่พอดีไม่ค้างครึ่งๆกลางๆ */
     padding-bottom: 20px; 
 }
 
@@ -531,9 +580,13 @@ body {
     overflow: hidden; 
     cursor: pointer; 
     transition: 0.3s; 
-    flex: 1 1 calc(25% - 15px); 
+    flex: 1 1 calc(25% - 15px); /* ให้โชว์ทีละ 4 การ์ดในจอคอม */
     min-width: 250px; 
     scroll-snap-align: start; 
+}
+
+.explore-card a { 
+    text-decoration: none; 
 }
 
 .explore-card:hover { 
@@ -545,6 +598,19 @@ body {
     width: 100%; 
     height: 180px; 
     object-fit: cover; 
+    transition: transform 0.3s ease;
+}
+
+/* ซูมรูปข้างในกล่อง Explore เวลาชี้ */
+.explore-card:hover img {
+    transform: scale(1.1);
+}
+
+/* โลโก้ที่ไม่อยากให้โดนครอปตัดขอบทิ้ง (เช่น โลโก้ Nano review) ให้แปะคลาสนี้เข้าไป */
+.img-contain { 
+    object-fit: contain !important; /* บังคับไม่ให้รูปโดนครอปตัดขอบทิ้ง */
+    background-color: #ffffff; 
+    padding: 10px; 
 }
 
 .explore-info { 
@@ -562,10 +628,10 @@ body {
     font-size: 13px; 
     color: #777; 
 }
+/* ----- End of Promo & Explore Section -----*/
 
-/* ---------------------------------------------------
-   6. SUPPORT & 7. FOOTER
---------------------------------------------------- */
+
+/* ----- SUPPORT & FOOTER SECTION (โซนติดต่อด้านล่างสุด) -----*/
 .support-section { 
     padding: 60px 100px; 
     background-color: #ffffff; 
@@ -573,7 +639,7 @@ body {
 
 .support-grid { 
     display: grid; 
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(4, 1fr); /* แบ่งพื้นที่เป็น 4 คอลัมน์เป๊ะๆ */
     gap: 30px; 
     max-width: 1226px; 
     margin: 0 auto; 
@@ -603,6 +669,7 @@ body {
     line-height: 1.5; 
 }
 
+/* แถบสีดำด้านล่างสุดของเว็บ */
 .footer-section { 
     background-color: #191919; 
     color: #b0b0b0; 
@@ -614,7 +681,7 @@ body {
     max-width: 1226px; 
     margin: 0 auto; 
     display: grid; 
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(4, 1fr); /* แบ่งข้อมูลติดต่อเป็น 4 คอลัมน์ */
     gap: 30px; 
     padding: 0 100px 40px; 
 }
@@ -627,7 +694,7 @@ body {
 }
 
 .footer-column ul { 
-    list-style: none; 
+    list-style: none; /* เอาจุดดำๆ หน้าข้อความ List ออก */
     padding: 0; 
     margin: 0; 
 }
@@ -649,18 +716,19 @@ body {
 
 .social-icons { 
     display: flex; 
-    gap: 15px; 
+    gap: 30px; 
 }
 
+/* ปุ่มวงกลมโซเชียล มีเดีย */
 .social-icons a { 
     color: #ffffff; 
     background-color: #333333; 
-    width: 35px; 
-    height: 35px; 
+    width: 60px; 
+    height: 60px; 
     display: flex; 
     justify-content: center; 
     align-items: center; 
-    border-radius: 50%; 
+    border-radius: 50%; /* ทำให้กล่องเป็นวงกลม */
     text-decoration: none; 
     font-size: 14px; 
     transition: 0.3s; 
@@ -670,10 +738,25 @@ body {
     background-color: #ff6900; 
 }
 
-/* ==============================================================
-   📱 8. RESPONSIVE DESIGN (ดักเฉพาะ UI มือถือ)
-============================================================== */
+/* เปลี่ยนรูปโลโก้โซเชียลข้างในจากสีดำให้กลายเป็นสีขาว */
+.social-icons a img {
+    width: 50px; 
+    height: 30px; 
+    object-fit: contain; 
+    filter: invert(1); /* เปลี่ยนสีรูปภาพจากดำให้เป็นสีขาว */
+    transition: 0.3s;
+}
+
+/* เอาเมาส์ชี้ปุ่มปุ๊บ ให้รูปโลโก้ข้างในขยายขึ้น 1.2 เท่า */
+.social-icons a:hover img { 
+    transform: scale(1.2); /* เอาเมาส์ชี้ปุ่มเเล้วรูปข้างในเด้งขยายขึ้น 1.2 เท่า */
+}
+/* ----- End of Support & Footer -----*/
+
+
+/* ----- RESPONSIVE DESIGN ค้ดในนี้จะทำงานก็ต่อเมื่อหน้าจอเล็กกว่าหรือเท่ากับ 768px -----*/
 @media (max-width: 768px) {
+    /* ลดระยะขอบซ้ายขวาให้เหลือนิดเดียว เพื่อให้ตรงกลางมีพื้นที่โชว์เนื้อหาเพิ่ม */
     .navbar, 
     .hero-section, 
     .product-section, 
@@ -685,15 +768,17 @@ body {
         padding-right: 20px;
     }
     
+    /* ซ่อนเมนูลิงก์ที่เกะกะ และซ่อนปุ่มลูกศรทิ้งไปเลย จะได้ไม่รกจอมือถือ */
     .nav-link, 
     .slider-btn, 
     .grid-nav-btn, 
     .promo-arrows { 
-        display: none; 
+        display: none; /* ซ่อนปุ่มเเละเมนูที่ไม่จำเป็นทิ้งไปเลย จะได้ไม่รกมือถือ */
     }
 
+    /* ปรับขนาดแบนเนอร์ใหญ่ให้กลายเป็นทรงแนวตั้ง */
     .hero-section { 
-        height: 85vh; 
+        height: 85vh; /* ปรับความสูงเเบนเนอร์ให้กินพื้นที่ 85% ของจอมือถือ */
         min-height: 550px;
         padding: 0; 
         align-items: flex-start; 
@@ -704,6 +789,7 @@ body {
         object-position: center center !important; 
     }
     
+    /* ปิดรูปแนวนอนของจอคอม แล้วสลับเปิดรูปของจอมือถือมาโชว์แทน */
     .img-desktop {
         display: none !important; 
     }
@@ -713,16 +799,17 @@ body {
         object-position: center top !important; 
     }
 
+    /* ตัวหนังสือในแบนเนอร์เรียงบนลงล่าง ใส่พื้นหลังไล่สีดำให้อ่านง่าย */
     .hero-content { 
         text-align: center; 
         display: flex;
-        flex-direction: column;
+        flex-direction: column; /* เปลี่ยนเนื้อหาให้เรียงจากบนลงล่างเเทน */
         justify-content: flex-start; 
         align-items: center;
         width: 100%;
         height: 100%; 
         padding: 40px 20px 20px 20px; 
-        background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 45%);
+        background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 45%); /* ใส่พื้นหลังไล่สีดำให้อ่านตัวหนังสือออกง่ายๆ */
     }
 
     .hero-title-img { 
@@ -731,6 +818,7 @@ body {
         display: block;
     }
 
+    /* ลดขนาดความใหญ่ของตัวหนังสือลงให้พอดีสเกลจอมือถือ */
     .hero-content h1 {
         font-size: 28px;
         margin-bottom: 5px;
@@ -750,7 +838,8 @@ body {
         text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
     }
 
-    .price {
+    /* 🚨 ตีกรอบให้เงาดำโชว์เฉพาะตัวหนังสือในโซนแบนเนอร์ จะได้ไม่ไปกวนการ์ดด้านล่าง */
+    .hero-content .price {
         font-size: 15px; 
         margin-bottom: 15px;
         text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
@@ -766,6 +855,7 @@ body {
         font-size: 13px;
     }
 
+    /* แท็บกรองสินค้า ให้เรียงแนวนอนแล้วไถปัดซ้ายขวาได้ */
     .product-tabs {
         justify-content: flex-start;
         overflow-x: auto; 
@@ -778,17 +868,19 @@ body {
         display: none; 
     } 
 
-    .promo-grid, 
+    /* เปลี่ยน Footer ให้เรียงดิ่งลงมาทีละ 1 คอลัมน์ */
     .footer-container { 
         grid-template-columns: 1fr; 
         gap: 20px; 
     }
     
+    /* กล่องไอคอนการสนับสนุนแบ่งเป็น 2 คอลัมน์ */
     .support-grid { 
         grid-template-columns: repeat(2, 1fr); 
         gap: 20px; 
     }
 
+    /* การ์ดสินค้าแบ่งเป็น 2 คอลัมน์เรียงคู่กัน */
     .product-grid { 
         grid-template-columns: repeat(2, 1fr); 
         gap: 10px; 
@@ -804,9 +896,10 @@ body {
         height: 120px; 
     }
 
+    /* การ์ดสินค้าใบใหญ่ ปรับโครงสร้างให้มาเรียงทับกันเป็นแนวตั้งตรงๆ */
     .product-card.featured-card { 
-        grid-column: span 2; 
-        flex-direction: column; 
+        grid-column: span 2; /* การ์ดใหญ่เปลี่ยนมาลากยาวเเค่ 2 คอลัมน์ (เต็มจอมือถือพอดี) */
+        flex-direction: column; /* ให้รูปกับข้อความเรียงทับกันเป็นเเนวตั้ง */
         min-height: auto; 
         padding: 0;
         overflow: hidden;
@@ -817,7 +910,7 @@ body {
         width: 100%; 
     }
 
-    /* 🚨 ปลดล็อกความกว้างรูปของการ์ดใบใหญ่ ให้แสดง 100% */
+    /* ปลดล็อกให้รูปภาพของการ์ดใบใหญ่แผ่กว้างเต็มกล่อง 100% */
     .product-card.featured-card img {
         width: 100%;
         height: auto;
@@ -829,10 +922,10 @@ body {
         padding: 20px 15px; 
     }
 
-    /* 🚨 ลดความหนาและความใหญ่ของตัวอักษรลง */
+    /* ลดความหนาและความใหญ่ของหัวข้อลง */
     .featured-info h2 {
-        font-size: 18px; /* ลดจากไซส์ปกติ */
-        font-weight: 400; /* ไม่หนาเตอะ */
+        font-size: 18px; 
+        font-weight: 400; 
         margin-bottom: 10px;
         margin-top: 10px;
     }
@@ -841,4 +934,54 @@ body {
         font-size: 13px;
         line-height: 1.4;
     }
+
+    /* แก้ให้การ์ดกล่องโปรโมชั่น (OS) แผ่กว้าง 85% ของจอ และปัดซ้ายขวาได้ */
+    .promo-grid {
+        display: flex !important; /* บังคับให้เรียงเเนวนอนเพื่อจะปัดซ้ายขวาได้ */
+        gap: 15px;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory; /* ปัดหน้าจอแล้วล็อกตำแหน่งให้เข้าที่ */
+        padding-bottom: 15px;
+    }
+
+    .promo-card {
+        flex: 0 0 85% !important; /* บังคับให้การ์ดกว้าง 85% ของจอมือถือ */
+        scroll-snap-align: start;
+        background-color: #ffffff;
+    }
+
+    .promo-img-box {
+        height: 180px !important; /* ปรับลดความสูงรูปลงมาให้สมส่วน */
+    }
+
+    /* แก้ให้การ์ด Explore (รู้จัก Teecha) แผ่กว้าง 85% ปัดซ้ายขวาได้เหมือนกัน */
+    .explore-grid {
+        display: flex !important;
+        gap: 15px;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 15px;
+        width: 100%;
+    }
+
+    .explore-card {
+        flex: 0 0 85% !important; 
+        min-width: unset !important; /* ล้างค่าเก่าของจอคอมทิ้งไปเลย */
+        scroll-snap-align: start;
+    }
+
+    .explore-card img {
+        width: 100%;
+        height: 160px !important; 
+        object-fit: cover;
+    }
+
+    /* ดึงหัวข้อทุกตัวให้กลับมาอยู่ตรงกลางเป๊ะๆ หลังจากเปลี่ยน Layout */
+    .promo-header, .explore-header {
+        justify-content: center !important;
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
+/* ----- End of Responsive Design -----*/
